@@ -7,9 +7,9 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <?php
-          // echo '<pre>';
-          // var_dump($_SESSION);
-          // echo '</pre>';
+          echo '<pre>';
+          var_dump($_SESSION);
+          echo '</pre>';
           ?>
         </div>
         <div class="col-sm-6">
