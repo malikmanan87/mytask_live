@@ -4,11 +4,23 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Login_model;
+use CodeIgniter\Config\BaseConfig;
 
 class Login extends Controller
 {
     public function index()
     {
+        $client = \Config\Services::curlrequest();
+        // $client = service('curlrequest');
+        if ($client) {
+            echo "ada";
+        }
+
+        // $response = $client->request('POST', 'https://disruptivetech.unisza.edu.my/api/common/v1/auth/login', [
+        //     'auth' => ['malikmanan', 'Passw0rd@un1sz4' , 'digest'],
+        // ]);
+        // echo $response->getBody();
+
         helper(['form']);
         echo view('login');
     }
@@ -18,37 +30,22 @@ class Login extends Controller
         $username = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
-        // https://disruptivetech.unisza.edu.my/api/common/v1/auth/login
+        // https://disruptivetech.unisza.edu.my/api/common/v1/auth/login,{"username" : "malikmanan","password" : "Passw0rd@un1sz4"}
 
-        // $yantemp = strpos($username, "@");
-        // if (!$yantemp) {
-        //     $username = $username . '@unisza.edu.my';
-        // }
-        // ini_set("default_socket_timeout", 5); // tak jadi
-        // imap_timeout(3, 5); // tak jadi
-        // $imapserver = '172.17.1.45:993/imap/ssl/novalidate-cert/readonly';
-        // $username = trim(strtolower($username));
-        // $mbox = @imap_open("{" . $imapserver . "}", $username, $password, OP_HALFOPEN);
 
-        // if ($mbox) {
-        //     echo "success";
-        // }
-        // else{
-        //     echo "failed";
-        // }
 
-        // $model = new Login_model();
-        // $data['auth'] = $model->getUser($username, $password);
+        $model = new Login_model();
+        $data['auth'] = $model->getUser($username, $password);
 
-        // if (!empty($data['auth'])) {
+        if (!empty($data['auth'])) {
             $session = session();
             $session->set('email', $this->request->getVar('email'));
             $session->set('logged_in', true);
-            return redirect()->to('/');
-        // } else {
-        //     return redirect()->to('/denied');
-        //     // return redirect()->to('/login')->with('create', 'success');
-        // }
+            return redirect()->to('/home');
+        } else {
+            // return redirect()->to('/denied');
+            return redirect()->to('/login')->with('create', 'success');
+        }
     }
 
     public function denied()
@@ -62,5 +59,4 @@ class Login extends Controller
         $session->destroy();
         return redirect()->to('/');
     }
-
 }
