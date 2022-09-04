@@ -59,7 +59,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Problem Description</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..." name="probdesc"></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"></textarea>
                                     <?= $validation->listErrors() ?>
                                 </div>
                             </div>

@@ -7,14 +7,14 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <?php
-          echo '<pre>';
-          var_dump($_SESSION);
-          echo '</pre>';
+          // echo '<pre>';
+          // var_dump($_SESSION);
+          // echo '</pre>';
           ?>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('/home') ?>">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
             <li class="breadcrumb-item active">Dashboard</li>
           </ol>
         </div>

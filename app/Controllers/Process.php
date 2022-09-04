@@ -16,7 +16,7 @@ class Process extends BaseController
         $session = session();
 
         $rules = [
-            'probdesc' => 'required',
+            'description' => 'required',
             // 'password' => 'required|min_length[10]',
             // 'passconf' => 'required|matches[password]',
             // 'email'    => 'required|valid_email',
@@ -32,7 +32,7 @@ class Process extends BaseController
             $model->save([
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
-                'description' => $this->request->getVar('probdesc'),
+                'description' => $this->request->getVar('description'),
             ]);
         }
         return redirect()->to('/home')->with('create', 'success');
