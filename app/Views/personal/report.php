@@ -30,7 +30,9 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Description</th>
+                                        <th>Action taken</th>
                                         <th>Created By</th>
+                                        <th>Created At</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -39,7 +41,9 @@
                                         <tr>
                                             <td><?= $item['id'] ?></td>
                                             <td><?= $item['description'] ?></td>
+                                            <td><?= $item['progress'] ?></td>
                                             <td><?= $item['created_by'] ?></td>
+                                            <td><?= $item['created_at'] ?></td>
                                             <td>
                                                 <?php
                                                 if ($item['status'] == 1) { //inprogress
