@@ -1,12 +1,7 @@
 <?php
 
 namespace App\Models;
-
-use CodeIgniter\Database\MySQLi\Builder;
 use CodeIgniter\Model;
-
-use function PHPUnit\Framework\returnSelf;
-use function PHPUnit\Framework\returnValue;
 
 class Report_model extends Model
 {
@@ -18,7 +13,7 @@ class Report_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['cat_device', 'cat_problem', 'description', 'created_at', 'updated_at', 'deleted_at', 'status'];
+    protected $allowedFields = ['cat_device', 'cat_problem', 'description', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee'];
 
     // protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

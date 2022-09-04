@@ -86,7 +86,7 @@
                         </div>
                         <?php
                         // papar jika status 1
-                        if ($result['status'] == 1) { ?> 
+                        if ($result['status'] == 1) { ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
@@ -105,7 +105,7 @@
                                             <?php
                                             if ($result['status'] == 0) { //kes baru
                                                 // echo "<button type='submit' class='btn btn-success'>Attend</button>";
-                                                echo "<a href='".base_url('/attend').'/'.$result['id']."' class='btn btn-success'>Attend</a>";
+                                                echo "<a href='" . base_url('/attend') . '/' . $result['id'] . "' class='btn btn-success'>Attend</a>";
                                             } elseif ($result['status'] == 1) { //dlm proses tech
                                                 echo "<button type='submit' class='btn btn-danger'>Submit Action</button>";
                                             } else {
@@ -126,24 +126,43 @@
 <?php
 $session = session();
 if ($session->updatesuccess) { ?>
-  <script>
-    const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseenter', Swal.stopTimer)
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
-  }
-})
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
 
-Toast.fire({
-  icon: 'success',
-  title: 'Thank you, your case has been submitted.'
-})
-  </script>
+        Toast.fire({
+            icon: 'success',
+            title: 'Thank you, case status become in-progress.'
+        })
+    </script>
+<?php } elseif ($session->updatefailed) { ?>
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'danger',
+            title: 'info, status un-changed.'
+        })
+    </script>
 <?php } else {
 } ?>
 
