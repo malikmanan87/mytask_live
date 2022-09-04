@@ -93,7 +93,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Action Taken <small>-by technician</small></label>
-                                        <textarea class="form-control" rows="3" name="actiontaken"><?= $result['actiontaken'] ?></textarea>
+                                        <textarea class="form-control" rows="3" name="progress"><?= $result['progress'] ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                             if ($result['status'] == 0) { //kes baru
                                                 echo "<button type='submit' class='btn btn-success'>Attend</button>";
                                             } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
-                                                echo "<button type='submit' class='btn btn-danger'>Submit Action</button>";
+                                                echo "<button type='submit' class='btn btn-danger'>Update Progress</button>";
                                             } else {
                                             }
 

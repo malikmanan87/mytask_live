@@ -8,10 +8,10 @@ class Login extends Controller
 {
     public function index()
     {
-        $session = session();
-        if ($session->logged_in == true) {
-            return redirect()->to('/home');
-        }
+        // $session = session();
+        // if ($session->logged_in == true) {
+        //     return redirect()->to('/home');
+        // }
         helper(['form']);
         echo view('login');
     }
@@ -35,10 +35,10 @@ class Login extends Controller
             ];
             // $encode = $url_encoded($newdata);
             $session->set($newdata);
-            return redirect()->to('/home');
+            return redirect()->to('/');
         } catch (\Exception) {
             // throw new \CodeIgniter\Router\Exceptions\RedirectException($route);
-            return redirect()->to('/login')->with('create', 'success');
+            return redirect()->to('/')->with('create', 'success');
         }
     }
 

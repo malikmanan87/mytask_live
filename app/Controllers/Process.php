@@ -35,7 +35,7 @@ class Process extends BaseController
                 'description' => $this->request->getVar('probdesc'),
             ]);
         }
-        return redirect()->to('/')->with('create', 'success');
+        return redirect()->to('/home')->with('create', 'success');
     }
 
     public function read($id)
@@ -52,13 +52,13 @@ class Process extends BaseController
     public function attend($id)
     {
         $emailattendee = $this->request->getVar('emailattendee');
-        $actiontaken = $this->request->getVar('actiontaken');
+        $progress = $this->request->getVar('progress');
 
         $model = new Report_model();
         $data['result'] = $model->getRecords($id);
 
         if ($data['result']['status'] != 0 and $data['result']['attendee'] != null) { //kalau status dh 1 dan tiada assign tech lg, update action shj
-            $update = $model->update($id, ['actiontaken' => $actiontaken]);
+            $update = $model->update($id, ['progress' => $progress]);
         } elseif ($data['result']['status'] == 0 and $data['result']['attendee'] == null) { //admin ubah status case menjadi cancel utk case baru shj
             $update = $model->update($id, ['status' => '3']);
         } else { //status baru

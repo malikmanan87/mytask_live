@@ -8,6 +8,11 @@ class Home extends BaseController
     public function index()
     {
         $session = session();
+        if ($session->logged_in == true) {
+            return redirect()->to('/login');
+            // echo "no access";
+        }else{
+
         $model = new Report_model();
         $data['result'] = $model->getRecords();
         $data['stat0'] = $model->getStat(0);        
@@ -15,6 +20,7 @@ class Home extends BaseController
         $data['stat2'] = $model->getStat(2);
         $data['stat3'] = $model->getStat(3);
        
-        return view('home',$data);
+        return view('/home',$data);
+        }
     }
 }

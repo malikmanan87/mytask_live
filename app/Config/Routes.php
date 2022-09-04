@@ -35,13 +35,13 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
+// $routes->get('/', 'Login::index');
 $routes->get('/login', 'Login::index');
 $routes->post('/auth', 'Login::auth');
 // $routes->get('/denied', 'Login::denied');
 $routes->get('/logout', 'Login::logout');
 
-$routes->get('/home', 'Home::index', ['filter' => 'auth']); //filter home page from unauthorize access
+$routes->get('/', 'Home::index', ['filter' => 'auth']); //filter home page from unauthorize access
 $routes->get('/new', 'Process::new', ['filter' => 'auth']);
 $routes->post('/create', 'Process::create', ['filter' => 'auth']);
 $routes->get('/read/(\d+)', 'Process::read/$1', ['filter' => 'auth']);
