@@ -31,6 +31,7 @@
                                         <th>#</th>
                                         <th>Device</th>
                                         <th>Description</th>
+                                        <th>Assigned technician</th>
                                         <th>Logged At</th>
                                         <th>Progress</th>
                                         <th>%</th>
@@ -64,6 +65,7 @@
                                             <td>
                                             <a href="<?= base_url('/read/' . $item['id']) ?>"><?= substr($item['description'], 0, 30) ?>..</a>
                                             </td>
+                                            <td><?= substr($item['attendee'],0,-14) ?></td>
                                             <td>
                                                 <?php
                                                 $datecreate = new DateTime($item['created_at']);
@@ -73,7 +75,7 @@
                                                 } else {
                                                 }
                                                 ?>
-                                            </td>
+                                            </td>                                            
                                             <td>
                                                 <?php
                                                 if ($item['status'] == 0) { //new case

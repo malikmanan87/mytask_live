@@ -26,7 +26,8 @@
                 <div class="card-body">
 
                     <form action="<?= base_url('/attend') . '/' . $result['id'] ?>" method="post">
-                    <input type="hidden" name="emailattendee" value="<?php $session = session(); echo $session->email ?>">
+                        <input type="hidden" name="emailattendee" value="<?php $session = session();
+                                                                            echo $session->email ?>">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -87,12 +88,12 @@
                         </div>
                         <?php
                         // papar jika status 1
-                        if ($result['status'] == 1) { ?>
+                        if ($result['status'] == 1 and $result['attendee'] == $session->email) { ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Action Taken <small>-by technician</small></label>
-                                        <textarea class="form-control" rows="3" name=""></textarea>
+                                        <textarea class="form-control" rows="3" name="actiontaken"><?= $result['actiontaken'] ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -106,9 +107,13 @@
                                             <?php
                                             if ($result['status'] == 0) { //kes baru
                                                 echo "<button type='submit' class='btn btn-success'>Attend</button>";
-                                            } elseif ($result['status'] == 1) { //dlm proses tech
+                                            } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
                                                 echo "<button type='submit' class='btn btn-danger'>Submit Action</button>";
                                             } else {
+                                            }
+
+                                            if ($result['status'] == 0 and $session->email == 'malikmanan@unisza.edu.my') { //dlm proses tech
+                                                echo "<button type='submit' class='btn btn-dark'>Cancel <em>-admin only!</em></button>";
                                             }
                                             ?>
                                             <button type="reset" class="btn btn-info">Reset</button>

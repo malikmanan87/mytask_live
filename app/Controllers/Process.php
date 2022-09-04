@@ -52,8 +52,18 @@ class Process extends BaseController
     public function attend($id)
     {
         $emailattendee = $this->request->getVar('emailattendee');
+        $actiontaken = $this->request->getVar('actiontaken');
+
         $model = new Report_model();
-        $update = $model->changeStatus1($id, $emailattendee);
+        $data['result'] = $model->getRecords($id);
+
+        if ($data['result']['status'] != 0 and $data['result']['attendee'] != null) { //kalau status dh 1 dan tiada assign tech lg, update action shj
+            $update = $model->update($id, ['actiontaken' => $actiontaken]);
+        } elseif ($data['result']['status'] == 0 and $data['result']['attendee'] == null) { //admin ubah status case menjadi cancel utk case baru shj
+            $update = $model->update($id, ['status' => '3']);
+        } else { //status baru
+            $update = $model->changeStatus1($id, $emailattendee);
+        }
 
         if ($update) {
             return redirect()->back()->with('updatesuccess', 'success');

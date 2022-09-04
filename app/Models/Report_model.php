@@ -13,7 +13,7 @@ class Report_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['cat_device', 'cat_problem', 'description', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee'];
+    protected $allowedFields = ['cat_device', 'cat_problem', 'description', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee', 'actiontaken'];
 
     // protected $useTimestamps = false;
     // protected $createdField  = 'created_at';
