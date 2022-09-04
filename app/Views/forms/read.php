@@ -106,14 +106,18 @@
                                         < Back</a>
                                             <?php
                                             if ($result['status'] == 0) { //kes baru
-                                                echo "<button type='submit' class='btn btn-success'>Attend</button>";
+                                                echo "<button type='submit' class='btn btn-light'>Attend</button>";
                                             } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
                                                 echo "<button type='submit' class='btn btn-danger'>Update Progress</button>";
                                             } else {
                                             }
 
+                                            if ($result['status'] == 1 and $result['created_by'] == $session->email) { //dlm proses tech
+                                                echo "<a class='btn btn-success' href='" . base_url('/completed') . "/" . $result['id'] . "' role='button'>Completed</a>";
+                                            }
+
                                             if ($result['status'] == 0 and $session->access == '3') { //dlm proses tech
-                                                echo "<a class='btn btn-dark' href='".base_url('/cancel')."/".$result['id']."' role='button'>Cancel By Admin</a>";
+                                                echo "<a class='btn btn-dark' href='" . base_url('/cancel') . "/" . $result['id'] . "' role='button'>Cancel By Admin</a>";
                                             }
                                             ?>
                                             <button type="reset" class="btn btn-info">Reset</button>

@@ -259,6 +259,25 @@ if ($session->create) { ?>
       title: 'Cancel successfully! case completed!'
     })
   </script>
+<?php } elseif ($session->completed) { ?>
+  <script>
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Thank you, Case <?= $session->name ?> completed!'
+    })
+  </script>
 <?php } else {
 } ?>
 

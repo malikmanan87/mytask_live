@@ -47,6 +47,7 @@ $routes->post('/create', 'Process::create', ['filter' => 'auth']);
 $routes->get('/read/(\d+)', 'Process::read/$1', ['filter' => 'auth']);
 $routes->post('/attend/(\d+)', 'Process::attend/$1', ['filter' => 'auth']);
 $routes->get('/cancel/(\d+)', 'Process::cancel/$1', ['filter' => 'auth']);
+$routes->get('/completed/(\d+)', 'Process::completed/$1', ['filter' => 'auth']);
 
 $routes->get('/newcaselist/(\d+)', 'Process::newcaselist/$1', ['filter' => 'auth']);
 $routes->get('/inprogresslist/(\d+)', 'Process::inprogresslist/$1', ['filter' => 'auth']);

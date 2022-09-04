@@ -71,6 +71,13 @@ class Process extends BaseController
             return redirect()->back()->with('updatefailed', 'failed');
     }
 
+    public function completed($id)
+    {
+        $model = new Report_model();
+        $model->update($id, ['status' => 2]);
+        return redirect()->to('/home')->with('completed', 'success');
+    }
+
     public function cancel($id) //cancel case user
     {
         $model = new Report_model();
