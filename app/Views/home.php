@@ -103,13 +103,15 @@
               <h3 class="card-title">Case List</h3>
             </div>
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped table-sm">
+              <table id="example1" class="table table-bordered table-striped table-sm display nowrap">
                 <thead>
                   <tr>
                     <th>#</th>
                     <th>Device</th>
                     <th>Description</th>
                     <th>Logged At</th>
+                    <th>Created By</th>
+                    <th>Attend By</th>
                     <th>Progress</th>
                     <th>%</th>
                   </tr>
@@ -152,6 +154,8 @@
                         }
                         ?>
                       </td>
+                      <td><?= $item['created_by'] ?></td>
+                      <td><?= $item['attendee'] ?></td>
                       <td>
                         <?php
                         if ($item['status'] == 0) { //new case

@@ -33,6 +33,7 @@ class Process extends BaseController
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
                 'description' => $this->request->getVar('description'),
+                'created_by' => $this->request->getVar('createdby'),
             ]);
         }
         return redirect()->to('/home')->with('create', 'success');

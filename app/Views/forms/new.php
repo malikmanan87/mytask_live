@@ -26,6 +26,7 @@
                     <?php $validation = \Config\Services::validation(); ?>
 
                     <form action="<?= base_url('/create') ?>" method="post">
+                    <input type="hidden" name="createdby" value="<?php $session = session(); echo $session->email; ?>">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">

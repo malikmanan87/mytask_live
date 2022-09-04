@@ -278,6 +278,7 @@
 <script>
   $(function () {
     $("#example1").DataTable({
+      scrollX: true,
       order: [[0, "desc"]],
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]

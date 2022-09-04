@@ -31,6 +31,7 @@
                                         <th>#</th>
                                         <th>Device</th>
                                         <th>Description</th>
+                                        <th>Create By</th>
                                         <th>Logged At</th>
                                         <th>Progress</th>
                                         <th>%</th>
@@ -64,6 +65,7 @@
                                             <td>
                                             <a href="<?= base_url('/read/' . $item['id']) ?>"><?= substr($item['description'], 0, 30) ?>..</a>
                                             </td>
+                                            <td><?= $item['created_by'] ?></td>
                                             <td>
                                                 <?php
                                                 $datecreate = new DateTime($item['created_at']);
