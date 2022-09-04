@@ -44,11 +44,20 @@ class Process extends BaseController
         $data['result'] = $model->getRecords($id);
 
         if (empty($data['result'])) {
-            // $session = session();
-            // $session->markAsTempdata('errorid', 300);
             return redirect()->to('/');
         } else
             return view('forms/read', $data);
+    }
+
+    public function attend($id)
+    {
+        $model = new Report_model();
+        $update = $model->changeStatus1($id);
+
+        if ($update) {
+            return redirect()->back()->with('updatesuccess', 'success');
+        } else
+            return redirect()->back()->with('updatefailed', 'failed');
     }
 
     public function newcaselist($id)

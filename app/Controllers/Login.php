@@ -36,15 +36,10 @@ class Login extends Controller
             // $encode = $url_encoded($newdata);
             $session->set($newdata);
             return redirect()->to('/home');
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             // throw new \CodeIgniter\Router\Exceptions\RedirectException($route);
             return redirect()->to('/login')->with('create', 'success');
         }
-    }
-
-    public function denied()
-    {
-        echo view('denied');
     }
 
     public function logout()

@@ -25,7 +25,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form>
+                    <form action="<?= base_url('/attend') ?>" method="post">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -84,21 +84,33 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Action Taken <small>-by technician</small></label>
-                                    <textarea class="form-control" rows="3" name=""></textarea>
+                        <?php
+                        // papar jika status 1
+                        if ($result['status'] == 1) { ?> 
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Action Taken <small>-by technician</small></label>
+                                        <textarea class="form-control" rows="3" name=""></textarea>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } else {
+                        } ?>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a class="btn btn-primary" href="<?= base_url('/'); ?>" role="button">
                                         < Back</a>
-                                            <button type="button" class="btn btn-success">Attend</button>
-                                            <button type="button" class="btn btn-danger">Submit Action</button>
+                                            <?php
+                                            if ($result['status'] == 0) { //kes baru
+                                                // echo "<button type='submit' class='btn btn-success'>Attend</button>";
+                                                echo "<a href='".base_url('/attend').'/'.$result['id']."' class='btn btn-success'>Attend</a>";
+                                            } elseif ($result['status'] == 1) { //dlm proses tech
+                                                echo "<button type='submit' class='btn btn-danger'>Submit Action</button>";
+                                            } else {
+                                            }
+                                            ?>
                                             <button type="reset" class="btn btn-info">Reset</button>
                                 </div>
                             </div>
@@ -109,5 +121,30 @@
         </div>
     </section>
 </div>
+
+<!-- sweetalert -->
+<?php
+$session = session();
+if ($session->updatesuccess) { ?>
+  <script>
+    const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Thank you, your case has been submitted.'
+})
+  </script>
+<?php } else {
+} ?>
 
 <?= $this->endSection() ?>

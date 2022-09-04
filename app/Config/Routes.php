@@ -38,13 +38,14 @@ $routes->set404Override();
 $routes->get('/', 'Login::index');
 $routes->get('/login', 'Login::index');
 $routes->post('/auth', 'Login::auth');
-$routes->get('/denied', 'Login::denied');
+// $routes->get('/denied', 'Login::denied');
 $routes->get('/logout', 'Login::logout');
 
 $routes->get('/home', 'Home::index', ['filter' => 'auth']); //filter home page from unauthorize access
 $routes->get('/new', 'Process::new', ['filter' => 'auth']);
 $routes->post('/create', 'Process::create', ['filter' => 'auth']);
 $routes->get('/read/(\d+)', 'Process::read/$1', ['filter' => 'auth']);
+$routes->get('/attend/(\d+)', 'Process::attend/$1', ['filter' => 'auth']);
 
 $routes->get('/newcaselist/(\d+)', 'Process::newcaselist/$1', ['filter' => 'auth']);
 $routes->get('/inprogresslist/(\d+)', 'Process::inprogresslist/$1', ['filter' => 'auth']);

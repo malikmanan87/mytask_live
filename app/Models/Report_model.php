@@ -18,7 +18,7 @@ class Report_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['cat_device', 'cat_problem', 'description', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields = ['cat_device', 'cat_problem', 'description', 'created_at', 'updated_at', 'deleted_at', 'status'];
 
     // protected $useTimestamps = false;
     // protected $createdField  = 'created_at';
@@ -69,5 +69,10 @@ class Report_model extends Model
             return $this->where('status', 3)->findAll();
         } else
             return;
+    }
+
+    public function changeStatus1($id)
+    {
+        return $this->update($id, ['status' => 1]);
     }
 }
