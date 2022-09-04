@@ -51,8 +51,9 @@ class Process extends BaseController
 
     public function attend($id)
     {
+        $emailattendee = $this->request->getVar('emailattendee');
         $model = new Report_model();
-        $update = $model->changeStatus1($id);
+        $update = $model->changeStatus1($id, $emailattendee);
 
         if ($update) {
             return redirect()->back()->with('updatesuccess', 'success');

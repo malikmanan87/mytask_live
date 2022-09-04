@@ -25,7 +25,8 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="<?= base_url('/attend') ?>" method="post">
+                    <form action="<?= base_url('/attend') . '/' . $result['id'] ?>" method="post">
+                    <input type="hidden" name="emailattendee" value="<?php $session = session(); echo $session->email ?>">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -104,8 +105,7 @@
                                         < Back</a>
                                             <?php
                                             if ($result['status'] == 0) { //kes baru
-                                                // echo "<button type='submit' class='btn btn-success'>Attend</button>";
-                                                echo "<a href='" . base_url('/attend') . '/' . $result['id'] . "' class='btn btn-success'>Attend</a>";
+                                                echo "<button type='submit' class='btn btn-success'>Attend</button>";
                                             } elseif ($result['status'] == 1) { //dlm proses tech
                                                 echo "<button type='submit' class='btn btn-danger'>Submit Action</button>";
                                             } else {

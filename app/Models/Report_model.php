@@ -66,8 +66,8 @@ class Report_model extends Model
             return;
     }
 
-    public function changeStatus1($id)
+    public function changeStatus1($id, $emailattendee)
     {
-        return $this->update($id, ['status' => 1]);
+        return $this->update($id, ['status' => 1, 'attendee' => $emailattendee]);
     }
 }
