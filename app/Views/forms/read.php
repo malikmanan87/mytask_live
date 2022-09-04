@@ -112,8 +112,8 @@
                                             } else {
                                             }
 
-                                            if ($result['status'] == 0 and $session->email == 'malikmanan@unisza.edu.my') { //dlm proses tech
-                                                echo "<button type='submit' class='btn btn-dark'>Cancel <em>-admin only!</em></button>";
+                                            if ($result['status'] == 0 and $session->access == '3') { //dlm proses tech
+                                                echo "<a class='btn btn-dark' href='".base_url('/cancel')."/".$result['id']."' role='button'>Cancel By Admin</a>";
                                             }
                                             ?>
                                             <button type="reset" class="btn btn-info">Reset</button>
