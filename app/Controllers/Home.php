@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Report_model;
+use App\Models\Process_model;
 
 class Home extends BaseController
 {
     public function index()
     {
         $session = session();
-        $model = new Report_model();
+        $model = new Process_model();
         $data['result'] = $model->getRecords();
         $data['stat0'] = $model->getStat(0);        
         $data['stat1'] = $model->getStat(1);

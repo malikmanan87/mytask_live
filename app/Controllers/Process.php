@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\Report_model;
+use App\Models\Process_model;
 
 class Process extends BaseController
 {
@@ -28,7 +28,7 @@ class Process extends BaseController
             ]);
         } else {
 
-            $model = new Report_model();
+            $model = new Process_model();
             $model->save([
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
@@ -41,7 +41,7 @@ class Process extends BaseController
 
     public function read($id)
     {
-        $model = new Report_model();
+        $model = new Process_model();
         $data['result'] = $model->getRecords($id);
 
         if (empty($data['result'])) {
@@ -56,7 +56,7 @@ class Process extends BaseController
         $emailattendee = $this->request->getVar('emailattendee');
         $progress = $this->request->getVar('progress');
 
-        $model = new Report_model();
+        $model = new Process_model();
         $data['result'] = $model->getRecords($id);
 
         if ($data['result']['status'] != 0 and $data['result']['attendee'] != null) { //kalau status dh 1 dan tiada assign tech lg, update action shj
@@ -73,21 +73,21 @@ class Process extends BaseController
 
     public function completed($id)
     {
-        $model = new Report_model();
+        $model = new Process_model();
         $model->update($id, ['status' => 2]);
         return redirect()->to('/home')->with('completed', 'success');
     }
 
     public function cancel($id) //cancel case user
     {
-        $model = new Report_model();
+        $model = new Process_model();
         $model->update($id, ['status' => 3]);
         return redirect()->to('/home')->with('cancelsuccess', 'success');
     }
 
     public function newcaselist($id)
     {
-        $model = new Report_model();
+        $model = new Process_model();
         $data['result'] = $model->getStatus($id);
         if (empty($data['result'])) {
             return redirect()->to('/');
@@ -97,7 +97,7 @@ class Process extends BaseController
 
     public function inprogresslist($id)
     {
-        $model = new Report_model();
+        $model = new Process_model();
         $data['result'] = $model->getStatus($id);
         if (empty($data['result'])) {
             return redirect()->to('/');
@@ -107,7 +107,7 @@ class Process extends BaseController
 
     public function completelist($id)
     {
-        $model = new Report_model();
+        $model = new Process_model();
         $data['result'] = $model->getStatus($id);
         if (empty($data['result'])) {
             return redirect()->to('/');
@@ -117,7 +117,7 @@ class Process extends BaseController
 
     public function canceledlist($id)
     {
-        $model = new Report_model();
+        $model = new Process_model();
         $data['result'] = $model->getStatus($id);
         if (empty($data['result'])) {
             return redirect()->to('/');

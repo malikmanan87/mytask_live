@@ -3,7 +3,7 @@
 namespace App\Models;
 use CodeIgniter\Model;
 
-class Report_model extends Model
+class Process_model extends Model
 {
     protected $table      = 'newcomplain';
     protected $primaryKey = 'id';
@@ -69,5 +69,10 @@ class Report_model extends Model
     public function changeStatus1($id, $emailattendee)
     {
         return $this->update($id, ['status' => 1, 'attendee' => $emailattendee]);
+    }
+
+    public function getReport($email)
+    {
+        return $this->where('attendee', $email)->findAll();
     }
 }
