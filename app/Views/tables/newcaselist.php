@@ -8,7 +8,7 @@
                 <div class="col-sm">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
-                        <li class="breadcrumb-item active">New Case</li>
+                        <li class="breadcrumb-item active">New Task</li>
                     </ol>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header bg-primary">
-                            <h3 class="card-title">New Case</h3>
+                            <h3 class="card-title">New Task</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped table-sm">

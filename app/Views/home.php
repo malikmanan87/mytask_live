@@ -58,7 +58,7 @@
           <div class="small-box bg-primary">
             <div class="inner">
               <h3><?= $stat0; ?></h3>
-              <p>New Case</p>
+              <p>New Task</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -111,7 +111,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
-              <h3 class="card-title">Case List</h3>
+              <h3 class="card-title">Task List</h3>
             </div>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped table-sm display nowrap">
