@@ -98,7 +98,7 @@
     <!-- sweetalert -->
 <?php
 $session = session();
-if ($session->create) { ?>
+if ($session->failed) { ?>
   <script>
     const Toast = Swal.mixin({
   toast: true,

@@ -146,7 +146,7 @@ if ($session->updatesuccess) { ?>
 
         Toast.fire({
             icon: 'success',
-            title: 'Thank you, case status become in-progress.'
+            title: 'Thank you, case status updated and in-progress.'
         })
     </script>
 <?php } elseif ($session->updatefailed) { ?>

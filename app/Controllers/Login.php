@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\Access_model;
 
 class Login extends Controller
 {
@@ -12,7 +13,7 @@ class Login extends Controller
         if ($session->logged_in == true) {
             return redirect()->to('/home');
         }
-        helper(['form']);
+        // helper(['form']);
         echo view('login');
     }
 
@@ -25,20 +26,38 @@ class Login extends Controller
 
         try {
             $response = $client->request("POST", "https://disruptivetech.unisza.edu.my/api/common/v1/auth/login", ['json' => ['username' => $username, "password" => $password],]);
-            $data = json_decode($response->getBody());
-            $session = session();
-            $newdata = [
-                'email'  => $data->data->info->email,
-                'staffno'     => $data->data->info->idnumber,
-                'name'     => $data->data->info->nama,
-                'logged_in' => true,
-            ];
-            // $encode = $url_encoded($newdata);
-            $session->set($newdata);
-            return redirect()->to('/home');
+            $jsondata = json_decode($response->getBody());
+
+            $model = new Access_model(); //connect model access utk dptkan lvl access
+            $data = $model->getEmail($username);
+
+            if ($data[0] == $username) { //jika ada access dlm table access
+                $session = session();
+                $newdata = [
+                    'email'  => $jsondata->data->info->email,
+                    'staffno'     => $jsondata->data->info->idnumber,
+                    'name'     => $jsondata->data->info->nama,
+                    'logged_in' => true,
+                    'access' => 3
+                ];
+                // $encode = $url_encoded($newdata);
+                $session->set($newdata);
+                return redirect()->to('/home')->with('signin', 'success');
+            } else { //set access sbg staf biasa = 1
+                $session = session();
+                $newdata = [
+                    'email'  => $jsondata->data->info->email,
+                    'staffno'     => $jsondata->data->info->idnumber,
+                    'name'     => $jsondata->data->info->nama,
+                    'logged_in' => true,
+                    'access' => 1
+                ];
+                $session->set($newdata);
+                return redirect()->to('/home')->with('signin', 'success');
+            }
         } catch (\Exception) {
             // throw new \CodeIgniter\Router\Exceptions\RedirectException($route);
-            return redirect()->to('/login')->with('create', 'success');
+            return redirect()->to('/login')->with('failed', 'success');
         }
     }
 

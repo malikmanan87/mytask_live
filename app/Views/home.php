@@ -7,6 +7,17 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <?php
+          $session = session();
+          if ($session->access == 1) {
+            echo "<span class='badge badge-pill badge-light'>Guest</span>";
+          } elseif ($session->access == 2) {
+            echo "<span class='badge badge-pill badge-info'>Technician</span>";
+          } else {
+            echo "<span class='badge badge-pill badge-dark'>Admin</span>";
+          }
+
+          // $session = session();
+          // echo "Welcome, ".$session->name;
           // echo '<pre>';
           // var_dump($_SESSION);
           // echo '</pre>';
@@ -194,21 +205,40 @@ $session = session();
 if ($session->create) { ?>
   <script>
     const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseenter', Swal.stopTimer)
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
-  }
-})
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
 
-Toast.fire({
-  icon: 'success',
-  title: 'Thank you, your case has been submitted.'
-})
+    Toast.fire({
+      icon: 'success',
+      title: 'Thank you, new case has been created.'
+    })
+  </script>
+<?php } elseif ($session->signin) { ?>
+  <script>
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Signed in successfully, welcome <?= $session->name ?>'
+    })
   </script>
 <?php } else {
 } ?>

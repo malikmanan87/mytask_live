@@ -52,6 +52,7 @@ class Process extends BaseController
 
     public function attend($id)
     {
+        $session = session();
         $emailattendee = $this->request->getVar('emailattendee');
         $progress = $this->request->getVar('progress');
 
@@ -60,7 +61,7 @@ class Process extends BaseController
 
         if ($data['result']['status'] != 0 and $data['result']['attendee'] != null) { //kalau status dh 1 dan tiada assign tech lg, update action shj
             $update = $model->update($id, ['progress' => $progress]);
-        } elseif ($data['result']['status'] == 0 and $data['result']['attendee'] == null) { //admin ubah status case menjadi cancel utk case baru shj
+        } elseif ($session->access == 3) { //admin ubah status case menjadi cancel utk case baru shj
             $update = $model->update($id, ['status' => '3']);
         } else { //status baru
             $update = $model->changeStatus1($id, $emailattendee);
