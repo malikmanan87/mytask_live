@@ -34,8 +34,6 @@
                                         <th>Create By</th>
                                         <th>Attend By</th>
                                         <th>Logged At</th>
-                                        <th>Progress</th>
-                                        <th>%</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,24 +76,6 @@
                                                 }
                                                 ?>
                                             </td>
-                                            <td>
-                                                <?php
-                                                if ($item['status'] == 0) { //new case
-                                                    $bar = "0%";
-                                                } elseif ($item['status'] == 1) { //inprogress
-                                                    $bar = "50%";
-                                                } elseif ($item['status'] == 2) { //completed
-                                                    $bar = "100%";
-                                                } elseif ($item['status'] == 3) { //canceled
-                                                    $bar = "100%";
-                                                } else {
-                                                } //error
-                                                ?>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-dark" style="width: <?= $bar ?>;"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge text-white bg-dark"><?= $bar ?></span></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>

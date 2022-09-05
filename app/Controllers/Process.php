@@ -17,6 +17,8 @@ class Process extends BaseController
         $session = session();
 
         $rules = [
+            'location' => 'required',
+            'phone' => 'required',
             'description' => 'required',
             // 'password' => 'required|min_length[10]',
             // 'passconf' => 'required|matches[password]',
@@ -33,7 +35,8 @@ class Process extends BaseController
             $model->save([
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
-                'location' => $this->request->getVar('probloc'),
+                'location' => $this->request->getVar('location'),
+                'phone' => $this->request->getVar('phone'),
                 'description' => $this->request->getVar('description'),
                 'created_by' => $this->request->getVar('createdby'),
                 'created_at' => $now,

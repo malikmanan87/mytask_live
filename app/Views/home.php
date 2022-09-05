@@ -14,8 +14,8 @@
             echo "<span class='badge badge-pill badge-info'>Technician</span>";
           } else {
             echo "<span class='badge badge-pill badge-dark'>Admin</span>";
-          } 
-          
+          }
+
           // use CodeIgniter\I18n\Time;
           // $myTime = new Time('now');
           // echo $myTime;
@@ -130,9 +130,9 @@
                     <th>Description</th>
                     <th>Logged At</th>
                     <th>Created By</th>
-                    <th>Attend By</th>
+                    <th>Location</th>
+                    <th>Phone</th>
                     <th>Progress</th>
-                    <th>%</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -174,27 +174,26 @@
                         ?>
                       </td>
                       <td><?= $item['created_by'] ?></td>
-                      <td><?= $item['attendee'] ?></td>
+                      <td><?= $item['location'] ?></td>
+                      <td><?= $item['phone'] ?></td>
                       <td>
-                        <?php
-                        if ($item['status'] == 0) { //new case
-                          $bar = "0%";
-                        } elseif ($item['status'] == 1) { //attend by  tech
-                          $bar = "25%";
-                        } elseif ($item['status'] == 11) { //completed by tech
-                          $bar = "50%";
-                        } elseif ($item['status'] == 2) { //completed by user
-                          $bar = "75%";
-                        } elseif ($item['status'] == 3) { //canceled
-                          $bar = "100%";
-                        } else {
-                        } //error
-                        ?>
                         <div class="progress progress-xs">
-                          <div class="progress-bar bg-dark" style="width: <?= $bar ?>;"></div>
+                          <?php
+                          if ($item['status'] == 0) { //new case
+                            echo "<div class='progress-bar bg-primary' style='width: 1%' ></div>";
+                          } elseif ($item['status'] == 1) { //attend by  tech
+                            echo "<div class='progress-bar bg-warning' style='width: 25%' ></div>";
+                          } elseif ($item['status'] == 11) { //completed by tech
+                            echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
+                          } elseif ($item['status'] == 2) { //completed by user
+                            echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
+                          } elseif ($item['status'] == 3) { //canceled
+                            echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
+                          } else {
+                          } //error
+                          ?>
                         </div>
                       </td>
-                      <td><span class="badge text-white bg-dark"><?= $bar ?></span></td>
                     </tr>
                   <?php endforeach ?>
                 </tbody>

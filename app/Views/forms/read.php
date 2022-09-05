@@ -29,7 +29,7 @@
                         <input type="hidden" name="emailattendee" value="<?php $session = session();
                                                                             echo $session->email ?>">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>Device Category</label>
                                     <?php
@@ -54,7 +54,7 @@
                                     <input class="form-control form-control-sm" type="text" value="<?= $cat_device ?>" readonly>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>Problem Category</label>
                                     <?php
@@ -77,10 +77,16 @@
                                     <input class="form-control form-control-sm" type="text" value="<?= $cat_problem ?>" readonly>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Location</label>
                                     <input class="form-control form-control-sm" type="text" value="<?= $result['location'] ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input class="form-control form-control-sm" type="text" value="<?= $result['phone'] ?>" readonly>
                                 </div>
                             </div>
                         </div>

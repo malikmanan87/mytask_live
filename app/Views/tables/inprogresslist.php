@@ -35,7 +35,6 @@
                                         <th>Attend By</th>
                                         <th>Logged At</th>
                                         <th>Progress</th>
-                                        <th>%</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,7 +63,7 @@
                                                 ?>
                                             </td>
                                             <td>
-                                            <a href="<?= base_url('/read/' . $item['id']) ?>"><?= substr($item['description'], 0, 30) ?>..</a>
+                                                <a href="<?= base_url('/read/' . $item['id']) ?>"><?= substr($item['description'], 0, 30) ?>..</a>
                                             </td>
                                             <td><?= $item['created_by'] ?></td>
                                             <td><?= $item['attendee'] ?></td>
@@ -77,27 +76,25 @@
                                                 } else {
                                                 }
                                                 ?>
-                                            </td>                                            
+                                            </td>
                                             <td>
-                                                <?php
-                                                if ($item['status'] == 0) { //new case
-                                                    $bar = "0%";
-                                                } elseif ($item['status'] == 1) { //inprogress
-                                                    $bar = "25%";
-                                                } elseif ($item['status'] == 11) { //completed by tech
-                                                    $bar = "50%";
-                                                } elseif ($item['status'] == 2) { //completed by user
-                                                    $bar = "75%";
-                                                } elseif ($item['status'] == 3) { //canceled
-                                                    $bar = "100%";
-                                                } else {
-                                                } //error
-                                                ?>
                                                 <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-dark" style="width: <?= $bar ?>;"></div>
+                                                    <?php
+                                                    if ($item['status'] == 0) { //new case
+                                                        echo "<div class='progress-bar bg-primary' style='width: 1%' ></div>";
+                                                    } elseif ($item['status'] == 1) { //attend by  tech
+                                                        echo "<div class='progress-bar bg-warning' style='width: 25%' ></div>";
+                                                    } elseif ($item['status'] == 11) { //completed by tech
+                                                        echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
+                                                    } elseif ($item['status'] == 2) { //completed by user
+                                                        echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
+                                                    } elseif ($item['status'] == 3) { //canceled
+                                                        echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
+                                                    } else {
+                                                    } //error
+                                                    ?>
                                                 </div>
                                             </td>
-                                            <td><span class="badge text-white bg-dark"><?= $bar ?></span></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
