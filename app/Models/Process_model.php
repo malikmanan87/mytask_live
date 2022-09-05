@@ -14,7 +14,7 @@ class Process_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['cat_device', 'cat_problem', 'description', 'created_by', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee', 'progress'];
+    protected $allowedFields = ['cat_device', 'cat_problem', 'location', 'description', 'created_by', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee', 'progress'];
 
     // protected $useTimestamps = false;
     // protected $createdField  = 'created_at';
@@ -58,7 +58,7 @@ class Process_model extends Model
         if ($id == 0) {
             return $this->where('status', 0)->findAll();
         } elseif ($id == 1) {
-            return $this->where('status', 1)->findAll();
+            return $this->whereIn('status', [1 , 11])->findAll();
         } elseif ($id == 2) {
             return $this->where('status', 2)->findAll();
         } elseif ($id == 3) {

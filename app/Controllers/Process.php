@@ -33,6 +33,7 @@ class Process extends BaseController
             $model->save([
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
+                'location' => $this->request->getVar('probloc'),
                 'description' => $this->request->getVar('description'),
                 'created_by' => $this->request->getVar('createdby'),
                 'created_at' => $now,
@@ -72,6 +73,13 @@ class Process extends BaseController
             return redirect()->back()->with('updatesuccess', 'success');
         } else
             return redirect()->back()->with('updatefailed', 'failed');
+    }
+
+    public function completedbytech($id)
+    { 
+        $model = new Process_model();
+        $model->update($id, ['status' => 11]);
+        return redirect()->to('/home')->with('completed', 'success');
     }
 
     public function completed($id)

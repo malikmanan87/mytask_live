@@ -28,7 +28,7 @@
                     <form action="<?= base_url('/create') ?>" method="post">
                     <input type="hidden" name="createdby" value="<?php $session = session(); echo $session->email; ?>">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Device Category</label>
                                     <select class="form-control" name="devcat">
@@ -42,7 +42,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Problem Category</label>
                                     <select class="form-control" name="probcat">
@@ -53,6 +53,12 @@
                                         <option value="p5">Ink/Toner</option>
                                         <option value="p6">Others</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Location</label><em> eg; ward, room, etc..</em>
+                                    <input type="text"  class="form-control" name="probloc">
                                 </div>
                             </div>
                         </div>

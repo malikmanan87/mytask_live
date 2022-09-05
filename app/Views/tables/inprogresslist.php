@@ -83,9 +83,11 @@
                                                 if ($item['status'] == 0) { //new case
                                                     $bar = "0%";
                                                 } elseif ($item['status'] == 1) { //inprogress
+                                                    $bar = "25%";
+                                                } elseif ($item['status'] == 11) { //completed by tech
                                                     $bar = "50%";
-                                                } elseif ($item['status'] == 2) { //completed
-                                                    $bar = "100%";
+                                                } elseif ($item['status'] == 2) { //completed by user
+                                                    $bar = "75%";
                                                 } elseif ($item['status'] == 3) { //canceled
                                                     $bar = "100%";
                                                 } else {

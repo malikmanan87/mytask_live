@@ -48,6 +48,7 @@ $routes->get('/read/(\d+)', 'Process::read/$1', ['filter' => 'auth']);
 $routes->post('/attend/(\d+)', 'Process::attend/$1', ['filter' => 'auth']);
 $routes->get('/cancel/(\d+)', 'Process::cancel/$1', ['filter' => 'auth']);
 $routes->get('/completed/(\d+)', 'Process::completed/$1', ['filter' => 'auth']);
+$routes->get('/completedbytech/(\d+)', 'Process::completedbytech/$1', ['filter' => 'auth']);
 
 $routes->get('/techreport', 'Report::index', ['filter' => 'auth']);
 

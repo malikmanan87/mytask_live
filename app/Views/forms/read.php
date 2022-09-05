@@ -29,7 +29,7 @@
                         <input type="hidden" name="emailattendee" value="<?php $session = session();
                                                                             echo $session->email ?>">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Device Category</label>
                                     <?php
@@ -54,7 +54,7 @@
                                     <input class="form-control form-control-sm" type="text" value="<?= $cat_device ?>" readonly>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Problem Category</label>
                                     <?php
@@ -75,6 +75,12 @@
                                     }
                                     ?>
                                     <input class="form-control form-control-sm" type="text" value="<?= $cat_problem ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input class="form-control form-control-sm" type="text" value="<?= $result['location'] ?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -110,25 +116,27 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a class="btn btn-primary" href="<?= base_url('/'); ?>" role="button">
-                                        < Back</a>
-                                            <?php
-                                            if ($result['status'] == 0) { //kes baru
-                                                echo "<button type='submit' class='btn btn-light'>Attend</button>";
-                                            } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
-                                                echo "<button type='submit' class='btn btn-danger'>Update Progress</button>";
-                                            } else {
-                                            }
+                                    <?php
+                                    if ($result['status'] == 0) { //kes baru
+                                        echo "<button type='submit' class='btn btn-light'>Attend</button>";
+                                    } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
+                                        echo "<button type='submit' class='btn btn-danger'>Update Progress</button>";
+                                    } else {
+                                    }
 
-                                            if ($result['status'] == 1 and $result['created_by'] == $session->email) { //dlm proses tech
-                                                echo "<a class='btn btn-success' href='" . base_url('/completed') . "/" . $result['id'] . "' role='button'>Completed</a>";
-                                            }
+                                    if ($result['status'] != 11 and $result['attendee'] == $session->email) {
+                                        echo "<a class='btn btn-warning' href='" . base_url('/completedbytech') . "/" . $result['id'] . "' role='button'>Completed by Tech</a>";
+                                    }
 
-                                            if ($result['status'] == 0 and $session->access == '3') { //dlm proses tech
-                                                echo "<a class='btn btn-dark' href='" . base_url('/cancel') . "/" . $result['id'] . "' role='button'>Cancel By Admin</a>";
-                                            }
-                                            ?>
-                                            <button type="reset" class="btn btn-info">Reset</button>
+                                    if ($result['status'] == 11 and $result['created_by'] == $session->email) { //dlm proses tech
+                                        echo "<a class='btn btn-success' href='" . base_url('/completed') . "/" . $result['id'] . "' role='button'>Completed</a>";
+                                    }
+
+                                    if ($result['status'] == 0 and $session->access == '3') { //dlm proses tech
+                                        echo "<a class='btn btn-dark' href='" . base_url('/cancel') . "/" . $result['id'] . "' role='button'>Cancel By Admin</a>";
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
