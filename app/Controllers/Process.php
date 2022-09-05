@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Process_model;
+use CodeIgniter\I18n\Time;
 
 class Process extends BaseController
 {
@@ -27,13 +28,14 @@ class Process extends BaseController
                 'validation' => $this->validator,
             ]);
         } else {
-
+            $now = new Time('now');
             $model = new Process_model();
             $model->save([
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
                 'description' => $this->request->getVar('description'),
                 'created_by' => $this->request->getVar('createdby'),
+                'created_at' => $now,
             ]);
         }
         return redirect()->to('/home')->with('create', 'success');
@@ -52,6 +54,7 @@ class Process extends BaseController
 
     public function attend($id)
     {
+        $now = new Time('now');
         $session = session();
         $emailattendee = $this->request->getVar('emailattendee');
         $progress = $this->request->getVar('progress');
@@ -60,8 +63,8 @@ class Process extends BaseController
         $data['result'] = $model->getRecords($id);
 
         if ($data['result']['status'] != 0 and $data['result']['attendee'] != null) { //kalau status dh 1 dan tiada assign tech lg, update action shj
-            $update = $model->update($id, ['progress' => $progress]);
-        } else { //status baru
+            $update = $model->update($id, ['progress' => $progress, 'updated_at' => $now]);
+        } else { //status baru dan assign tech
             $update = $model->changeStatus1($id, $emailattendee);
         }
 

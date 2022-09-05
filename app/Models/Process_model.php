@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use CodeIgniter\Model;
+use CodeIgniter\I18n\Time;
 
 class Process_model extends Model
 {
@@ -68,7 +69,8 @@ class Process_model extends Model
 
     public function changeStatus1($id, $emailattendee)
     {
-        return $this->update($id, ['status' => 1, 'attendee' => $emailattendee]);
+        $now = new Time('now');
+        return $this->update($id, ['status' => 1, 'attendee' => $emailattendee, 'updated_at' => $now]);
     }
 
     public function getReport($email)

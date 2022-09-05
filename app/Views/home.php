@@ -14,8 +14,11 @@
             echo "<span class='badge badge-pill badge-info'>Technician</span>";
           } else {
             echo "<span class='badge badge-pill badge-dark'>Admin</span>";
-          }
+          } 
+          use CodeIgniter\I18n\Time;
 
+          $myTime = new Time('now');
+          echo $myTime;
           // $session = session();
           // echo "Welcome, ".$session->name;
           // echo '<pre>';
@@ -206,7 +209,7 @@ if ($session->create) { ?>
   <script>
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: 'center',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
@@ -236,7 +239,7 @@ if ($session->create) { ?>
     })
 
     Toast.fire({
-      icon: 'success',
+      icon: 'info',
       title: 'Signed in successfully, welcome <?= $session->name ?>'
     })
   </script>
@@ -244,7 +247,7 @@ if ($session->create) { ?>
   <script>
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: 'center',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
@@ -255,7 +258,7 @@ if ($session->create) { ?>
     })
 
     Toast.fire({
-      icon: 'success',
+      icon: 'info',
       title: 'Cancel successfully! case completed!'
     })
   </script>
@@ -263,7 +266,7 @@ if ($session->create) { ?>
   <script>
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: 'center',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
@@ -274,7 +277,7 @@ if ($session->create) { ?>
     })
 
     Toast.fire({
-      icon: 'success',
+      icon: 'info',
       title: 'Thank you, Case <?= $session->name ?> completed!'
     })
   </script>
