@@ -15,10 +15,15 @@
           } else {
             echo "<span class='badge badge-pill badge-dark'>Admin</span>";
           } 
-          use CodeIgniter\I18n\Time;
+          
+          // use CodeIgniter\I18n\Time;
+          // $myTime = new Time('now');
+          // echo $myTime;
 
-          $myTime = new Time('now');
-          echo $myTime;
+          // $encrypter = \Config\Services::encrypter();
+          // $ciphertext = $encrypter->encrypt($myTime);
+          // // echo $encrypter->decrypt($ciphertext);
+          // echo $ciphertext;
           // $session = session();
           // echo "Welcome, ".$session->name;
           // echo '<pre>';

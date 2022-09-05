@@ -218,7 +218,7 @@
                 <li class="nav-item">
                   <a href="<?= base_url("/techreport") ?>" class="nav-link">
                     <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
-                    <p>Technician Report</p>
+                    <p>Tech Report</p>
                   </a>
                 </li>
                 <li class="nav-item">

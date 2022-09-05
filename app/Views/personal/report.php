@@ -30,7 +30,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Description</th>
-                                        <th>Action taken</th>
+                                        <th>Action taken / Progress</th>
                                         <th>Created By</th>
                                         <th>Created At</th>
                                         <th>Status</th>
