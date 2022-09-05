@@ -86,6 +86,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Action Taken / Progress - <em><i>by technician</i></em></label>
+                                    <textarea class="form-control" rows="3" readonly><?= $result['progress'] ?></textarea>
+                                </div>
+                            </div>
+                        </div>
                         <?php
                         // papar jika status 1
                         if ($result['status'] == 1 and $result['attendee'] == $session->email) { ?>
