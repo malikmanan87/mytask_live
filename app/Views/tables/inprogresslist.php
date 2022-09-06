@@ -78,22 +78,15 @@
                                                 ?>
                                             </td>
                                             <td>
-                                                <div class="progress progress-xs">
-                                                    <?php
-                                                    if ($item['status'] == 0) { //new case
-                                                        echo "<div class='progress-bar bg-primary' style='width: 1%' ></div>";
-                                                    } elseif ($item['status'] == 1) { //attend by  tech
-                                                        echo "<div class='progress-bar bg-warning' style='width: 25%' ></div>";
-                                                    } elseif ($item['status'] == 11) { //completed by tech
-                                                        echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
-                                                    } elseif ($item['status'] == 2) { //completed by user
-                                                        echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
-                                                    } elseif ($item['status'] == 3) { //canceled
-                                                        echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
-                                                    } else {
-                                                    } //error
-                                                    ?>
-                                                </div>
+                                            <?php
+                                                if ($item['status'] == 1) { //inprogress
+                                                    echo "<span class='badge badge-pill badge-warning'>In-Progress</span>";
+                                                } elseif ($item['status'] == 11) { //completed by tech
+                                                    echo "<span class='badge badge-pill badge-danger'>Pending verify</span>";
+                                                } else {
+                                                    echo "error";
+                                                }
+                                                ?>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>

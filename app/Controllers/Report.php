@@ -15,4 +15,9 @@ class Report extends Controller
         $data['result'] = $model->getReport($session->email);
         echo view('personal/report', $data);
     }
+
+    public function readme(Type $var = null)
+    {
+        echo view('readme');
+    }
 }

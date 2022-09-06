@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="card card-white">
                 <div class="card-header">
-                    <h3 class="card-title">New Form</h3>
+                    <h3 class="card-title">Details</h3>
                 </div>
                 <div class="card-body">
 

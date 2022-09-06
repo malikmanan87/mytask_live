@@ -51,6 +51,7 @@ $routes->get('/completed/(\d+)', 'Process::completed/$1', ['filter' => 'auth']);
 $routes->get('/completedbytech/(\d+)', 'Process::completedbytech/$1', ['filter' => 'auth']);
 
 $routes->get('/techreport', 'Report::index', ['filter' => 'auth']);
+$routes->get('/readme', 'Report::readme', ['filter' => 'auth']);
 
 $routes->get('/newcaselist/(\d+)', 'Process::newcaselist/$1', ['filter' => 'auth']);
 $routes->get('/inprogresslist/(\d+)', 'Process::inprogresslist/$1', ['filter' => 'auth']);

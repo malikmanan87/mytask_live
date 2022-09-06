@@ -66,7 +66,7 @@
           <div class="small-box bg-primary">
             <div class="inner">
               <h3><?= $stat0; ?></h3>
-              <p>New Task</p>
+              <p>New Ticket</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -78,7 +78,7 @@
           <div class="small-box bg-warning">
             <div class="inner">
               <h3><?= $stat1; ?></h3>
-              <p>In-progress</p>
+              <p>In-progress & Pending verify</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -183,8 +183,8 @@
                             echo "<div class='progress-bar bg-primary' style='width: 1%' ></div>";
                           } elseif ($item['status'] == 1) { //attend by  tech
                             echo "<div class='progress-bar bg-warning' style='width: 25%' ></div>";
-                          } elseif ($item['status'] == 11) { //completed by tech
-                            echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
+                          } elseif ($item['status'] == 11) { //pending verify
+                            echo "<div class='progress-bar bg-danger' style='width: 50%' ></div>";
                           } elseif ($item['status'] == 2) { //completed by user
                             echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
                           } elseif ($item['status'] == 3) { //canceled

@@ -8,7 +8,7 @@
                 <div class="col-sm">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
-                        <li class="breadcrumb-item active">New Task</li>
+                        <li class="breadcrumb-item active">New Ticket</li>
                     </ol>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header bg-primary">
-                            <h3 class="card-title">New Task</h3>
+                            <h3 class="card-title">New Ticket</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped table-sm">
@@ -32,9 +32,7 @@
                                         <th>Device</th>
                                         <th>Description</th>
                                         <th>Created By</th>
-                                        <th>Logged At</th>
-                                        <th>Progress</th>
-                                        <th>%</th>
+                                        <th>Logged At</th>                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,24 +74,6 @@
                                                 }
                                                 ?>
                                             </td>
-                                            <td>
-                                                <?php
-                                                if ($item['status'] == 0) { //new case
-                                                    $bar = "0%";
-                                                } elseif ($item['status'] == 1) { //inprogress
-                                                    $bar = "50%";
-                                                } elseif ($item['status'] == 2) { //completed
-                                                    $bar = "100%";
-                                                } elseif ($item['status'] == 3) { //canceled
-                                                    $bar = "100%";
-                                                } else {
-                                                } //error
-                                                ?>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-dark" style="width: <?= $bar ?>;"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge text-white bg-dark"><?= $bar ?></span></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>

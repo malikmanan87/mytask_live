@@ -211,7 +211,7 @@
             <li class="nav-item">
                   <a href="<?= base_url("/new") ?>" class="nav-link">
                     <i class="nav-icon fas fa-regular fa-file"></i>
-                    <p>+ New Task</p>
+                    <p>+ New Ticket</p>
                     <span class="right badge badge-warning">New</span>
                   </a>
                 </li>
@@ -219,6 +219,12 @@
                   <a href="<?= base_url("/techreport") ?>" class="nav-link">
                     <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
                     <p>Tech Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url("/readme") ?>" class="nav-link">
+                    <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
+                    <p>Read Me plz!</p>
                   </a>
                 </li>
                 <li class="nav-item">

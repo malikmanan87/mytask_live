@@ -48,8 +48,12 @@
                                                 <?php
                                                 if ($item['status'] == 1) { //inprogress
                                                     echo "<span class='badge badge-pill badge-warning'>In-Progress</span>";
-                                                } elseif ($item['status'] == 2) { //completed
+                                                } elseif ($item['status'] == 11) { //completed by tech
+                                                    echo "<span class='badge badge-pill badge-warning'>Pending verify</span>";
+                                                }elseif ($item['status'] == 2) { //completed
                                                     echo "<span class='badge badge-pill badge-success'>Completed</span>";
+                                                }elseif ($item['status'] == 3) { //canceled
+                                                    echo "<span class='badge badge-pill badge-dark'>Canceled</span>";
                                                 } else {
                                                     echo "error";
                                                 }
