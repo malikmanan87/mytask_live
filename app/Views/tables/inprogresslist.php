@@ -82,7 +82,7 @@
                                                 if ($item['status'] == 1) { //inprogress
                                                     echo "<span class='badge badge-pill badge-warning'>In-Progress</span>";
                                                 } elseif ($item['status'] == 11) { //completed by tech
-                                                    echo "<span class='badge badge-pill badge-danger'>Pending verify</span>";
+                                                    echo "<span class='badge badge-pill badge-warning'>Pending verify</span>";
                                                 } else {
                                                     echo "error";
                                                 }

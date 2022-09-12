@@ -21,7 +21,11 @@
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Task Details</h3>
+                    <h3 class="card-title">Task Details By :
+                        <span class="badge badge-dark">
+                            <a href="mailto:<?= $result['created_by'] ?>"> <?= $result['created_by'] ?></a>
+                        </span>
+                    </h3>
                 </div>
                 <div class="card-body">
 

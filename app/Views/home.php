@@ -168,7 +168,7 @@
                         $datecreate = new DateTime($item['created_at']);
                         echo $datecreate->format('d/m/Y | h:i:s a | D');
                         if ($datecreate->format('d/m/Y') == date('d/m/Y')) {
-                          echo "&nbsp;<span class='right badge badge-warning'>new!</span>";
+                          echo "&nbsp;<span class='right badge badge-warning'>Today!</span>";
                         } else {
                         }
                         ?>
@@ -180,11 +180,11 @@
                         <div class="progress progress-xs">
                           <?php
                           if ($item['status'] == 0) { //new case
-                            echo "<div class='progress-bar bg-primary' style='width: 1%' ></div>";
+                            echo "<div class='progress-bar bg-primary' style='width: 25%' ></div>";
                           } elseif ($item['status'] == 1) { //attend by  tech
-                            echo "<div class='progress-bar bg-warning' style='width: 25%' ></div>";
+                            echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
                           } elseif ($item['status'] == 11) { //pending verify
-                            echo "<div class='progress-bar bg-danger' style='width: 50%' ></div>";
+                            echo "<div class='progress-bar bg-warning' style='width: 75%' ></div>";
                           } elseif ($item['status'] == 2) { //completed by user
                             echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
                           } elseif ($item['status'] == 3) { //canceled
@@ -227,7 +227,7 @@ if ($session->create) { ?>
 
     Toast.fire({
       icon: 'success',
-      title: 'Thank you, new case has been created.'
+      title: 'Thank you, new ticket has been created.'
     })
   </script>
 <?php } elseif ($session->signin) { ?>
@@ -284,7 +284,7 @@ if ($session->create) { ?>
 
     Toast.fire({
       icon: 'info',
-      title: 'Thank you, Case <?= $session->name ?> completed!'
+      title: 'Thank you, ticket <?= $session->name ?> completed!'
     })
   </script>
 <?php } else {

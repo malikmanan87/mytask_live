@@ -57,7 +57,7 @@
                     </div>
                     <div id="collapseTwo" class="collapse" data-parent="#accordion">
                       <div class="card-body">
-                      <img src="<?= base_url('/media/fc-mytask.png') ?>" alt="" width="25%">
+                      <img src="<?= base_url('/media/fc-mytask.png') ?>" alt="" width="30%">
                       </div>
                     </div>
                   </div>
