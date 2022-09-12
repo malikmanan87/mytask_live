@@ -32,7 +32,17 @@ class Process extends BaseController
         } else {
             $now = new Time('now');
             $model = new Process_model();
+
+            // generate random 6 char for ticket id
+            $letters = 'abcdefghijklmnopqrstuvwxyz';
+            $randomid = '';
+            for ($x = 0; $x < 3; ++$x) {
+                $randomid .= $letters[rand(0, 25)] . rand(0, 9);
+            }
+            // eoc
+
             $model->save([
+                'ticket_id' => $randomid,
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
                 'location' => $this->request->getVar('location'),
@@ -79,7 +89,7 @@ class Process extends BaseController
     }
 
     public function completedbytech($id)
-    { 
+    {
         $model = new Process_model();
         $model->update($id, ['status' => 11]);
         return redirect()->to('/home')->with('completed', 'success');

@@ -125,20 +125,19 @@
               <table id="example1" class="table table-bordered table-striped table-sm display nowrap">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>Report ID</th>
                     <th>Device</th>
-                    <th>Description</th>
-                    <th>Logged At</th>
-                    <th>Created By</th>
+                    <th>Problem Description</th>
                     <th>Location</th>
-                    <th>Phone</th>
+                    <th>Created At</th>
+                    <th>Assigned To</th>
                     <th>Progress</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($result as $item) : ?>
                     <tr>
-                      <th><?= $item['id'] ?></th>
+                      <th><?= $item['ticket_id'] ?></th>
                       <td>
                         <?php
                         if ($item['cat_device'] == 'd1') {
@@ -163,6 +162,7 @@
                       <td>
                         <a href="<?= base_url('/read/' . $item['id']) ?>"><?= substr($item['description'], 0, 30) ?>..</a>
                       </td>
+                      <td><?= $item['location'] ?></td>
                       <td>
                         <?php
                         $datecreate = new DateTime($item['created_at']);
@@ -173,26 +173,38 @@
                         }
                         ?>
                       </td>
-                      <td><?= $item['created_by'] ?></td>
-                      <td><?= $item['location'] ?></td>
-                      <td><?= $item['phone'] ?></td>
                       <td>
-                        <div class="progress progress-xs">
+                        <?php
+                        if ($item['attendee'] == null and $item['status'] != 3) {
+                          echo "<i>Open</i>";
+                        } elseif ($item['attendee'] == null and $item['status'] == 3 or $item['attendee'] != null and $item['status'] == 3) {
+                          echo "<i>Canceled by System</i>";
+                        } else
+                          echo $item['attendee']
+                        ?>
+                      </td>
+                      <td>
+                        <!-- <div class="progress progress-xs"> -->
                           <?php
                           if ($item['status'] == 0) { //new case
-                            echo "<div class='progress-bar bg-primary' style='width: 25%' ></div>";
+                            // echo "<div class='progress-bar bg-primary' style='width: 25%' ></div>";
+                            echo "<center><span class='right badge badge-primary'>New</span></center>";
                           } elseif ($item['status'] == 1) { //attend by  tech
-                            echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
+                            // echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
+                            echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
                           } elseif ($item['status'] == 11) { //pending verify
-                            echo "<div class='progress-bar bg-warning' style='width: 75%' ></div>";
+                            // echo "<div class='progress-bar bg-warning' style='width: 75%' ></div>";
+                            echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
                           } elseif ($item['status'] == 2) { //completed by user
-                            echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
+                            // echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
+                            echo "<center><span class='right badge badge-success'>Completed</span></center>";
                           } elseif ($item['status'] == 3) { //canceled
-                            echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
+                            // echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
+                            echo "<center><span class='right badge badge-dark'>canceled</span></center>";
                           } else {
                           } //error
                           ?>
-                        </div>
+                        <!-- </div> -->
                       </td>
                     </tr>
                   <?php endforeach ?>
