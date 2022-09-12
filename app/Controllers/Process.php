@@ -42,7 +42,7 @@ class Process extends BaseController
             // eoc
 
             $model->save([
-                'ticket_id' => $randomid,
+                'ticket_id' => strtoupper($randomid),
                 'cat_device' => $this->request->getVar('devcat'),
                 'cat_problem' => $this->request->getVar('probcat'),
                 'location' => $this->request->getVar('location'),

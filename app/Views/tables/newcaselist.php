@@ -69,7 +69,7 @@
                                                 $datecreate = new DateTime($item['created_at']);
                                                 echo $datecreate->format('d/m/Y | h:i:s a | D');
                                                 if ($datecreate->format('d/m/Y') == date('d/m/Y')) {
-                                                    echo "&nbsp;<span class='right badge badge-warning'>new!</span>";
+                                                    echo "&nbsp;<span class='right badge badge-secondary'>Today!</span>";
                                                 } else {
                                                 }
                                                 ?>

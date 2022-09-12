@@ -25,7 +25,7 @@
                             <h3 class="card-title">Completed Task</h3>
                         </div>
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped table-sm">
+                            <table id="example2" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -71,7 +71,7 @@
                                                 $datecreate = new DateTime($item['created_at']);
                                                 echo $datecreate->format('d/m/Y | h:i:s a | D');
                                                 if ($datecreate->format('d/m/Y') == date('d/m/Y')) {
-                                                    echo "&nbsp;<span class='right badge badge-warning'>new!</span>";
+                                                    echo "&nbsp;<span class='right badge badge-secondary'>new!</span>";
                                                 } else {
                                                 }
                                                 ?>

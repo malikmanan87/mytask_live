@@ -49,8 +49,8 @@
           <a href="<?= base_url('/new') ?>">
             <div class="small-box bg-white">
               <div class="inner">
-                <h3>+ New Ticket</h3>
-                <small><i>*create new case</i></small>
+                <h4>+ New Ticket</h4>
+                <!-- <small><i>*create new case</i></small> -->
               </div>
             </div>
           </a>
@@ -168,7 +168,7 @@
                         $datecreate = new DateTime($item['created_at']);
                         echo $datecreate->format('d/m/Y | h:i:s a | D');
                         if ($datecreate->format('d/m/Y') == date('d/m/Y')) {
-                          echo "&nbsp;<span class='right badge badge-warning'>Today!</span>";
+                          echo "&nbsp;<span class='right badge badge-secondary'>Today!</span>";
                         } else {
                         }
                         ?>

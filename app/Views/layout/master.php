@@ -291,7 +291,13 @@
 <script>
   $(function () {
     $("#example1").DataTable({
-      order: [[0, "desc"]],
+      order: [[4, "desc"]],
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+    $("#example2").DataTable({
+      order: [[5, "desc"]],
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
