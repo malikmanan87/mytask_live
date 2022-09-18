@@ -50,6 +50,7 @@ $routes->get('/cancel/(\d+)', 'Process::cancel/$1', ['filter' => 'auth']);
 $routes->get('/completed/(\d+)', 'Process::completed/$1', ['filter' => 'auth']);
 $routes->get('/completedbytech/(\d+)', 'Process::completedbytech/$1', ['filter' => 'auth']);
 $routes->get('/toupdate/(\d+)', 'Process::toupdate/$1', ['filter' => 'auth']);
+$routes->post('/doupdate', 'Process::doupdate', ['filter' => 'auth']);
 
 $routes->get('/techreport', 'Report::index', ['filter' => 'auth']);
 $routes->get('/readme', 'Report::readme', ['filter' => 'auth']);

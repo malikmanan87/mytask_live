@@ -29,74 +29,79 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="<?= base_url('/update') . '/' . $result['id'] ?>" method="post">
-                        <input type="hidden" name="emailattendee" value="<?php $session = session();
-                                                                            echo $session->email ?>">
+                    <form action="<?= base_url('/doupdate') ?>" method="post">
+                        <input type="hidden" name="uid" value="<?= $result['id'] ?>">
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>Device Category</label>
-                                    <?php
-                                    if ($result['cat_device'] == 'd1') {
-                                        $cat_device = "PC";
-                                    } elseif ($result['cat_device'] == 'd2') {
-                                        $cat_device = "Laptop";
-                                    } elseif ($result['cat_device'] == 'd3') {
-                                        $cat_device = "Printer";
-                                    } elseif ($result['cat_device'] == 'd4') {
-                                        $cat_device = "Scanner";
-                                    } elseif ($result['cat_device'] == 'd5') {
-                                        $cat_device = "Photostat Machine";
-                                    } elseif ($result['cat_device'] == 'd6') {
-                                        $cat_device = "Access Door";
-                                    } elseif ($result['cat_device'] == 'd7') {
-                                        $cat_device = "Others";
-                                    } else {
-                                        $cat_device = "error";
-                                    }
-                                    ?>
-                                    <input class="form-control form-control-sm" type="text" value="<?= $cat_device ?>" >
+
+                                    <select class="form-control" name="udevcat">
+                                        <option value="d1" <?php if ($result['cat_device'] == "d1") {
+                                                                echo "selected";
+                                                            } ?>>PC</option>
+                                        <option value="d2" <?php if ($result['cat_device'] == "d2") {
+                                                                echo "selected";
+                                                            } ?>>Laptop</option>
+                                        <option value="d3" <?php if ($result['cat_device'] == "d3") {
+                                                                echo "selected";
+                                                            } ?>>Printer</option>
+                                        <option value="d4" <?php if ($result['cat_device'] == "d4") {
+                                                                echo "selected";
+                                                            } ?>>Scanner</option>
+                                        <option value="d5" <?php if ($result['cat_device'] == "d5") {
+                                                                echo "selected";
+                                                            } ?>>Photostat Machine</option>
+                                        <option value="d6" <?php if ($result['cat_device'] == "d6") {
+                                                                echo "selected";
+                                                            } ?>>Access Door</option>
+                                        <option value="d7" <?php if ($result['cat_device'] == "d7") {
+                                                                echo "selected";
+                                                            } ?>>Others</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>Problem Category</label>
-                                    <?php
-                                    if ($result['cat_problem'] == 'p1') {
-                                        $cat_problem = "Hardware";
-                                    } elseif ($result['cat_problem'] == 'p2') {
-                                        $cat_problem = "Software";
-                                    } elseif ($result['cat_problem'] == 'p3') {
-                                        $cat_problem = "Wifi";
-                                    } elseif ($result['cat_problem'] == 'p4') {
-                                        $cat_problem = "Internet";
-                                    } elseif ($result['cat_problem'] == 'p5') {
-                                        $cat_problem = "Ink/Toner";
-                                    } elseif ($result['cat_problem'] == 'p6') {
-                                        $cat_problem = "Others";
-                                    } else {
-                                        $cat_problem = "error";
-                                    }
-                                    ?>
-                                    <input class="form-control form-control-sm" type="text" value="<?= $cat_problem ?>" >
+                                    <select class="form-control" name="uprobcat">
+                                        <option value="p1" <?php if ($result['cat_problem'] == "p1") {
+                                                                echo "selected";
+                                                            } ?>>Hardware</option>
+                                        <option value="p2" <?php if ($result['cat_problem'] == "p2") {
+                                                                echo "selected";
+                                                            } ?>>Software</option>
+                                        <option value="p3" <?php if ($result['cat_problem'] == "p3") {
+                                                                echo "selected";
+                                                            } ?>>Wifi</option>
+                                        <option value="p4" <?php if ($result['cat_problem'] == "p4") {
+                                                                echo "selected";
+                                                            } ?>>Internet</option>
+                                        <option value="p5" <?php if ($result['cat_problem'] == "p5") {
+                                                                echo "selected";
+                                                            } ?>>Ink/Toner</option>
+                                        <option value="p6" <?php if ($result['cat_problem'] == "p6") {
+                                                                echo "selected";
+                                                            } ?>>Others</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <input class="form-control form-control-sm" type="text" value="<?= $result['location'] ?>" >
+                                    <input class="form-control form-control" type="text" value="<?= $result['location'] ?>" name="ulocation">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>User</label>
-                                    <input class="form-control form-control-sm" type="text" value="<?= $result['temp_user'] ?>" >
+                                    <input class="form-control form-control" type="text" value="<?= $result['temp_user'] ?>" name="utemp_user">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>Phone Ext. / (+60)</label>
-                                    <input class="form-control form-control-sm" type="text" value="<?= $result['phone'] ?>" >
+                                    <input class="form-control form-control" type="text" value="<?= $result['phone'] ?>" name="uphone">
                                 </div>
                             </div>
                         </div>
@@ -104,31 +109,10 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Problem Description</label>
-                                    <textarea class="form-control" rows="3" ><?= $result['description'] ?></textarea>
+                                    <textarea class="form-control" rows="3" name="udescription"><?= $result['description'] ?></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Action Taken / Progress - <em><i>by technician</i></em></label>
-                                    <textarea class="form-control" rows="3" ><?= $result['progress'] ?></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        // papar jika status 1
-                        if ($result['status'] == 1 and $result['attendee'] == $session->email) { ?>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label>Action Takenda <small>-by technician</small></label>
-                                        <textarea class="form-control" rows="3" name="progress"><?= $result['progress'] ?></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } else {
-                        } ?>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -153,9 +137,9 @@ if ($session->updatesuccess) { ?>
     <script>
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 4000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -165,16 +149,16 @@ if ($session->updatesuccess) { ?>
 
         Toast.fire({
             icon: 'success',
-            title: 'Thank you, case status updated and in-progress.'
+            title: 'Thank you, information has been updated.'
         })
     </script>
 <?php } elseif ($session->updatefailed) { ?>
     <script>
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 4000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -184,7 +168,7 @@ if ($session->updatesuccess) { ?>
 
         Toast.fire({
             icon: 'danger',
-            title: 'info, status un-changed.'
+            title: 'Sorry, information cannot be updated.'
         })
     </script>
 <?php } else {

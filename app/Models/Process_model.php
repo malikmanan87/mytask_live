@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use CodeIgniter\Model;
 use CodeIgniter\I18n\Time;
 
@@ -58,7 +59,7 @@ class Process_model extends Model
         if ($id == 0) {
             return $this->where('status', 0)->findAll();
         } elseif ($id == 1) {
-            return $this->whereIn('status', [1 , 11])->findAll();
+            return $this->whereIn('status', [1, 11])->findAll();
         } elseif ($id == 2) {
             return $this->where('status', 2)->findAll();
         } elseif ($id == 3) {
@@ -78,8 +79,8 @@ class Process_model extends Model
         return $this->where('attendee', $email)->findAll();
     }
 
-    public function toUpdate($id)
+    public function toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6)
     {
-        echo $id;
+        return $this->update($id, ['cat_device' => $u1, 'cat_problem' => $u2, 'location' => $u3, 'temp_user' => $u4, 'phone' => $u5, 'description' => $u6]);
     }
 }

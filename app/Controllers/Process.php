@@ -159,4 +159,23 @@ class Process extends BaseController
 
         return view('forms/update', $data);
     }
+
+    public function doupdate()
+    {
+        // print_r($_REQUEST);
+        $id = $this->request->getVar('uid');
+        $u1 = $this->request->getVar('udevcat');
+        $u2 = $this->request->getVar('uprobcat');
+        $u3 = $this->request->getVar('ulocation');
+        $u4 = $this->request->getVar('utemp_user');
+        $u5 = $this->request->getVar('uphone');
+        $u6 = $this->request->getVar('udescription');
+
+        $model = new Process_model();
+        $data['status'] = $model->toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6);
+        if (empty($data['status'])) {
+            return redirect()->back()->with('updatefailed', 'failed');
+        } else
+            return redirect()->back()->with('updatesuccess', 'success');
+    }
 }
