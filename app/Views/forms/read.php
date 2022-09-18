@@ -156,7 +156,11 @@
 
                                 </div>
                             </div>
-                            <div class="col-sm-6"><a href="<?= base_url('/toupdate') . "/" . $result['id'] ?>" class="btn btn-link">[Update]</a></div>
+                            <?php
+                            if (($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhusin@unisza.edu.my")) {
+                                echo "<div class='col-sm-6'><a href='" . base_url('/toupdate') . "/" . $result['id'] . "' class='btn btn-info btn-sm'>Update</a></div>";
+                            }
+                            ?>
                         </div>
                     </form>
                 </div>
