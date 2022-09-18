@@ -89,7 +89,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label>Phone</label>
+                                    <label>Phone Ext. / (+60)</label>
                                     <input class="form-control form-control-sm" type="text" value="<?= $result['phone'] ?>" readonly>
                                 </div>
                             </div>
@@ -127,6 +127,7 @@
                             <div class="col-sm-6">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <?php
+                                    echo "<a class='btn btn-primary' href='" . base_url('/') . "'>< Back</a>";
                                     if ($result['status'] == 0) { //kes baru
                                         echo "<button type='submit' class='btn btn-light'>Attend</button>";
                                     } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
