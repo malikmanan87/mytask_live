@@ -14,7 +14,7 @@ class Process_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['ticket_id', 'cat_device', 'cat_problem', 'location', 'phone', 'description', 'created_by', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee', 'progress'];
+    protected $allowedFields = ['ticket_id', 'cat_device', 'cat_problem', 'location', 'phone', 'description', 'created_by', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee', 'progress', 'temp_user'];
 
     // protected $useTimestamps = false;
     // protected $createdField  = 'created_at';
@@ -76,5 +76,10 @@ class Process_model extends Model
     public function getReport($email)
     {
         return $this->where('attendee', $email)->findAll();
+    }
+
+    public function toUpdate($id)
+    {
+        echo $id;
     }
 }

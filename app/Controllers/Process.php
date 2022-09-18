@@ -18,8 +18,10 @@ class Process extends BaseController
 
         $rules = [
             'location' => 'required',
+            'user' => 'required',
             'phone' => 'required',
             'description' => 'required',
+
             // 'password' => 'required|min_length[10]',
             // 'passconf' => 'required|matches[password]',
             // 'email'    => 'required|valid_email',
@@ -50,6 +52,7 @@ class Process extends BaseController
                 'description' => $this->request->getVar('description'),
                 'created_by' => $this->request->getVar('createdby'),
                 'created_at' => $now,
+                'temp_user' => $this->request->getVar('user')
             ]);
         }
         return redirect()->to('/home')->with('create', 'success');
@@ -147,5 +150,13 @@ class Process extends BaseController
             return redirect()->to('/');
         } else
             return view('tables/canceledlist', $data);
+    }
+
+    public function toupdate($id) //update selagi status = 0, new
+    {
+        $model = new Process_model();
+        $data['result'] = $model->getRecords($id);
+
+        return view('forms/update', $data);
     }
 }

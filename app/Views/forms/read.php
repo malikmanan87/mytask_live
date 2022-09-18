@@ -81,10 +81,16 @@
                                     <input class="form-control form-control-sm" type="text" value="<?= $cat_problem ?>" readonly>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Location</label>
                                     <input class="form-control form-control-sm" type="text" value="<?= $result['location'] ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label>User</label>
+                                    <input class="form-control form-control-sm" type="text" value="<?= $result['temp_user'] ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -150,6 +156,7 @@
 
                                 </div>
                             </div>
+                            <div class="col-sm-6"><a href="<?= base_url('/toupdate') . "/" . $result['id'] ?>" class="btn btn-link">[Update]</a></div>
                         </div>
                     </form>
                 </div>

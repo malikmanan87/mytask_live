@@ -55,10 +55,16 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Location</label><em> eg; ward, room, etc..</em>
                                     <input type="text"  class="form-control" name="location">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label>User</label><em> eg; ali bin abu</em>
+                                    <input type="text"  class="form-control" name="user" placeholder="">
                                 </div>
                             </div>
                             <div class="col-sm-2">
