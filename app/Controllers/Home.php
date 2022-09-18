@@ -12,6 +12,7 @@ class Home extends BaseController
         $data['result'] = $model->getRecords();
         $data['stat0'] = $model->getStat(0);        
         $data['stat1'] = $model->getStat(1);
+        $data['stat11'] = $model->getStat(11);
         $data['stat2'] = $model->getStat(2);
         $data['stat3'] = $model->getStat(3);
        

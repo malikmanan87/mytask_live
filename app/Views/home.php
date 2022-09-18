@@ -77,7 +77,17 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3><?= $stat1; ?></h3>
+              <h3>
+                <?php
+                if ((!empty($stat1)) and (!empty($stat11))) {
+                  $statboth = $stat1 + $stat11;
+                  echo $statboth;
+                } elseif (!empty($stat1)) {
+                  echo $stat1;
+                } else {
+                  echo $stat11;
+                }
+                ?></h3>
               <p>In-progress & Pending verify</p>
             </div>
             <div class="icon">
@@ -185,25 +195,25 @@
                       </td>
                       <td>
                         <!-- <div class="progress progress-xs"> -->
-                          <?php
-                          if ($item['status'] == 0) { //new case
-                            // echo "<div class='progress-bar bg-primary' style='width: 25%' ></div>";
-                            echo "<center><span class='right badge badge-primary'>New</span></center>";
-                          } elseif ($item['status'] == 1) { //attend by  tech
-                            // echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
-                            echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
-                          } elseif ($item['status'] == 11) { //pending verify
-                            // echo "<div class='progress-bar bg-warning' style='width: 75%' ></div>";
-                            echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
-                          } elseif ($item['status'] == 2) { //completed by user
-                            // echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
-                            echo "<center><span class='right badge badge-success'>Completed</span></center>";
-                          } elseif ($item['status'] == 3) { //canceled
-                            // echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
-                            echo "<center><span class='right badge badge-dark'>canceled</span></center>";
-                          } else {
-                          } //error
-                          ?>
+                        <?php
+                        if ($item['status'] == 0) { //new case
+                          // echo "<div class='progress-bar bg-primary' style='width: 25%' ></div>";
+                          echo "<center><span class='right badge badge-primary'>New</span></center>";
+                        } elseif ($item['status'] == 1) { //attend by  tech
+                          // echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
+                          echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
+                        } elseif ($item['status'] == 11) { //pending verify
+                          // echo "<div class='progress-bar bg-warning' style='width: 75%' ></div>";
+                          echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
+                        } elseif ($item['status'] == 2) { //completed by user
+                          // echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
+                          echo "<center><span class='right badge badge-success'>Completed</span></center>";
+                        } elseif ($item['status'] == 3) { //canceled
+                          // echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
+                          echo "<center><span class='right badge badge-dark'>canceled</span></center>";
+                        } else {
+                        } //error
+                        ?>
                         <!-- </div> -->
                       </td>
                     </tr>
