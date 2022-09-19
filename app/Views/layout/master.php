@@ -218,7 +218,13 @@
                 <li class="nav-item">
                   <a href="<?= base_url("/techreport") ?>" class="nav-link">
                     <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
-                    <p>Tech Report</p>
+                    <p>Personal Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url("/allreport") ?>" class="nav-link">
+                    <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
+                    <p>All Report</p>
                   </a>
                 </li>
                 <li class="nav-item">

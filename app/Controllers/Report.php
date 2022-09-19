@@ -20,4 +20,21 @@ class Report extends Controller
     {
         echo view('readme');
     }
+
+    public function all(Type $var = null)
+    {
+        $model = new Process_model();
+        $data['result'] = $model->getReport();
+        echo view('personal/allreport', $data);
+    }
+
+    public function monthly($emel, $month)
+    {
+        $model = new Process_model();
+        $data['result'] = $model->getMonthly(base64_decode($emel), $month);
+        if (empty($data['result'])) {
+            return redirect()->back();
+        } else
+            return view('personal/monthlyreport', $data);
+    }
 }

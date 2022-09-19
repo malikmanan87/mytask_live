@@ -179,7 +179,7 @@
                                     }
                                     ?>
                                     <?php
-                                    if (($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhusin@unisza.edu.my")) {
+                                    if (($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhussin@unisza.edu.my")) {
                                         echo "<a href='" . base_url('/toupdate') . "/" . $result['id'] . "' class='btn btn-info'>Update By Admin</a>";
                                     }
                                     ?>

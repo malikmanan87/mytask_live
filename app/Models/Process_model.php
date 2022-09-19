@@ -74,9 +74,36 @@ class Process_model extends Model
         return $this->update($id, ['status' => 1, 'attendee' => $emailattendee, 'updated_at' => $now]);
     }
 
-    public function getReport($email)
+    public function getReport($email = false)
     {
-        return $this->where('attendee', $email)->findAll();
+        if ($email === false) {
+
+            $queryawi = "select DISTINCT newcomplain.attendee,table1.cur_month ,table1.cur_ticket, table2.cum_ticket from newcomplain
+            left join (
+                select DISTINCT attendee, month(created_at) as cur_month,count(ticket_id) as cur_ticket
+                from newcomplain
+                where month(created_at) = month(CURRENT_DATE)
+                GROUP BY attendee, month(created_at)
+            ) as table1 on table1.attendee = newcomplain.attendee
+            left join (
+                select DISTINCT attendee, COUNT(ticket_id) as cum_ticket
+                FROM newcomplain
+                group by attendee
+            ) as table2 on table2.attendee = newcomplain.attendee
+            order by newcomplain.attendee asc";
+
+            $db = db_connect();
+            $query = $db->query($queryawi);
+            $query = $query->getResultArray();
+            return $query;
+        } else {
+            return $this->where('attendee', $email)->findAll();
+        }
+    }
+
+    public function getMonthly($a,$b)
+    {
+        return $this->where('attendee', $a)->where('month(created_at)', $b)->findAll();
     }
 
     public function toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6)
