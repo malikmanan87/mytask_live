@@ -12,9 +12,9 @@
             echo "<span class='badge badge-pill badge-light'>Guest</span>";
           } elseif ($session->access == 2) {
             echo "<span class='badge badge-pill badge-info'>Technician</span>";
-          } else {
+          } elseif ($session->access == 3) {
             echo "<span class='badge badge-pill badge-dark'>Admin</span>";
-          }
+          }else{}
 
           // use CodeIgniter\I18n\Time;
           // $myTime = new Time('now');

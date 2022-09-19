@@ -29,18 +29,20 @@
                                 <thead>
                                     <tr>
                                         <th>Attendee / technician</th>
-                                        <th><?php echo date("F Y"); ?></th>
-                                        <th>Cumulative</th>
+                                        <th style="text-align: center;"><?php echo date("F Y"); ?></th>
+                                        <th style="text-align: center;">Cumulative</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($result as $item) : ?>
                                         <tr>
                                             <td><?= $item['attendee'] ?></td>
-                                            <td><span class="badge badge-pill badge-light"><a href="<?= base_url('/monthly') . '/' . base64_encode($item['attendee']) . '/' . $item['cur_month'] ?>"><?= $item['cur_ticket'] ?> tickets</a></span>
-                                                
+                                            <td style="text-align: center;">
+                                                <button type="button" class="btn btn-primary">
+                                                    <span class="badge badge-light"><a href="<?= base_url('/monthly') . '/' . base64_encode($item['attendee']) . '/' . $item['cur_month'] ?>"><?= $item['cur_ticket'] ?> ticket/s</a></span>
+                                                </button>
                                             </td>
-                                            <td><?= $item['cum_ticket'] ?></td>
+                                            <td style="text-align: center;"><?= $item['cum_ticket'] ?></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
