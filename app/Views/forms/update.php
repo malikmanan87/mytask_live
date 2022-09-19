@@ -117,7 +117,7 @@
                             <div class="col-sm-6">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <?php
-                                    echo "<a class='btn btn-primary' href='" . base_url('/') . "'>< Back</a>";
+                                    echo "<a class='btn btn-primary' href='" . base_url('/') . "/read/" . $result['id'] . "'>< Back</a>";
                                     echo "<button type='submit' class='btn btn-info'>Submit update</button>";
                                     ?>
                                 </div>

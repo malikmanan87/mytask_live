@@ -129,11 +129,36 @@
                             </div>
                         <?php } else {
                         } ?>
+                        <?php
+                        if ((($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhussin@unisza.edu.my")) and $result['status'] == 0) { ?>
+                            <hr>
+                            <div class="row col-sm-12">
+                                <div class="col-sm-2">
+                                    <label>Assign To Technician- <em>*jika kosong, sistem automatik ambil email siapa yang klik butang "Attend" dibawah.</em></label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="form-control" name="assign">
+                                        <option value=""></option>
+                                        <option value="syukerimohamad@unisza.edu.my">SYUKERI</option>
+                                        <option value="msayutizakaria@unisza.edu.my">SAYUTI</option>
+                                        <option value="aminfahmihashim@unisza.edu.my">AMIN</option>
+                                        <option value="asrulnizamrizuan@unisza.edu.my">ASRUL</option>
+                                        <option value="nikzaimnar@unisza.edu.my">ZAIM</option>
+                                        <option value="mekrogayahhussin@unisza.edu.my">MEK</option>
+                                        <option value="wfairawhamid@unisza.edu.my">FAIRA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr>
+                        <?php } else {
+                        } ?>
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <?php
                                     echo "<a class='btn btn-primary' href='" . base_url('/') . "'>< Back</a>";
+
                                     if ($result['status'] == 0) { //kes baru
                                         echo "<button type='submit' class='btn btn-light'>Attend</button>";
                                     } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
@@ -153,14 +178,13 @@
                                         echo "<a class='btn btn-dark' href='" . base_url('/cancel') . "/" . $result['id'] . "' role='button'>Cancel By Admin</a>";
                                     }
                                     ?>
-
+                                    <?php
+                                    if (($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhusin@unisza.edu.my")) {
+                                        echo "<a href='" . base_url('/toupdate') . "/" . $result['id'] . "' class='btn btn-info'>Update By Admin</a>";
+                                    }
+                                    ?>
                                 </div>
                             </div>
-                            <?php
-                            if (($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhusin@unisza.edu.my")) {
-                                echo "<div class='col-sm-6'><a href='" . base_url('/toupdate') . "/" . $result['id'] . "' class='btn btn-info btn-sm'>Update</a></div>";
-                            }
-                            ?>
                         </div>
                     </form>
                 </div>
@@ -176,9 +200,9 @@ if ($session->updatesuccess) { ?>
     <script>
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 4000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -195,9 +219,9 @@ if ($session->updatesuccess) { ?>
     <script>
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 4000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)

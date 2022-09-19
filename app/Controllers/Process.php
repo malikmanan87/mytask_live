@@ -73,7 +73,15 @@ class Process extends BaseController
     {
         $now = new Time('now');
         $session = session();
-        $emailattendee = $this->request->getVar('emailattendee');
+
+        // check jika tiada assign pd sape2, auto ambik emel attendee yg klik
+        if (!empty($this->request->getVar('assign'))) { //jika ada select tech
+            $emailattendee = $this->request->getVar('assign');
+        } else {
+            $emailattendee = $this->request->getVar('emailattendee'); //ambil nilai session email
+        }
+
+        // $emailattendee = $this->request->getVar('emailattendee');
         $progress = $this->request->getVar('progress');
 
         $model = new Process_model();
