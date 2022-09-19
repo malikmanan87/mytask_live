@@ -178,9 +178,10 @@ class Process extends BaseController
         $u4 = $this->request->getVar('utemp_user');
         $u5 = $this->request->getVar('uphone');
         $u6 = $this->request->getVar('udescription');
+        $u7 = $this->request->getVar('uprogress');
 
         $model = new Process_model();
-        $data['status'] = $model->toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6);
+        $data['status'] = $model->toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6, $u7);
         if (empty($data['status'])) {
             return redirect()->back()->with('updatefailed', 'failed');
         } else

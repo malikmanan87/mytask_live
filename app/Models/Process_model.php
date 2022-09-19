@@ -106,8 +106,8 @@ class Process_model extends Model
         return $this->where('attendee', $a)->where('month(created_at)', $b)->findAll();
     }
 
-    public function toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6)
+    public function toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6, $u7)
     {
-        return $this->update($id, ['cat_device' => $u1, 'cat_problem' => $u2, 'location' => $u3, 'temp_user' => $u4, 'phone' => $u5, 'description' => $u6]);
+        return $this->update($id, ['cat_device' => $u1, 'cat_problem' => $u2, 'location' => $u3, 'temp_user' => $u4, 'phone' => $u5, 'description' => $u6, 'progress' => $u7]);
     }
 }

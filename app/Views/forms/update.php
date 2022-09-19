@@ -114,6 +114,14 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                <label>Action Taken / Progress - <em><i>by technician</i></em></label>
+                                    <textarea class="form-control" rows="3" name="uprogress"><?= $result['progress'] ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <?php
