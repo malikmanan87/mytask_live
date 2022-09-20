@@ -55,21 +55,21 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPUser;
+    public $SMTPUser = "hpunisza_sys01@unisza.edu.my";
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass;
+    public $SMTPPass = "utzyv2Aqx6rz";
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = 587;
+    public $SMTPPort = 25;
 
     /**
      * SMTP Timeout (in seconds)
