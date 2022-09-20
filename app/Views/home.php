@@ -62,7 +62,7 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-2 col-6">
           <div class="small-box bg-primary">
             <div class="inner">
               <h3><?= $stat0; ?></h3>
@@ -108,11 +108,23 @@
             <a href="<?= base_url('/completelist/2') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-2 col-6">
           <div class="small-box bg-dark">
             <div class="inner">
               <h3><?= $stat3; ?></h3>
               <p>Canceled</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="<?= base_url('/canceledlist/3') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-12">
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3><?= $allrecord; ?></h3>
+              <p>Total</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

@@ -15,6 +15,7 @@ class Home extends BaseController
         $data['stat11'] = $model->getStat(11);
         $data['stat2'] = $model->getStat(2);
         $data['stat3'] = $model->getStat(3);
+        $data['allrecord'] = $model->countAllRecord();
        
         return view('home',$data);
     }

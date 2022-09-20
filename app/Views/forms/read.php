@@ -123,7 +123,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Action Taken <small>-by technician</small></label>
-                                        <textarea class="form-control" rows="3" name="progress"><?= $result['progress'] ?></textarea>
+                                        <textarea class="form-control" rows="3" name="progress" placeholder="Please click [Update Progress] red button below after insert the info."><?= $result['progress'] ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                     } else {
                                     }
 
-                                    if ($result['status'] != 11 and $result['attendee'] == $session->email) {
+                                    if ($result['status'] == 1 and $result['attendee'] == $session->email) {
                                         echo "<a class='btn btn-warning' href='" . base_url('/completedbytech') . "/" . $result['id'] . "' role='button'>Completed by Tech</a>";
                                     }
 

@@ -54,6 +54,11 @@ class Process_model extends Model
         } else return '0';
     }
 
+    public function countAllRecord()
+    {
+        return count($this->findAll());
+    }
+
     public function getStatus($id)
     {
         if ($id == 0) {
@@ -104,6 +109,11 @@ class Process_model extends Model
     public function getMonthly($a,$b)
     {
         return $this->where('attendee', $a)->where('month(created_at)', $b)->findAll();
+    }
+
+    public function getCumulative($a)
+    {
+        return count($this->where('attendee', $a)->findAll());
     }
 
     public function toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6, $u7)

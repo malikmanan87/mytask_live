@@ -21,11 +21,16 @@ class Report extends Controller
         echo view('readme');
     }
 
-    public function all(Type $var = null)
+    public function allreport(Type $var = null)
     {
         $model = new Process_model();
         $data['result'] = $model->getReport();
-        echo view('personal/allreport', $data);
+        // print_r($data['result']); die();
+        if (empty($data['result'])) {
+            return redirect()->back();
+        } else
+            return view('personal/allreport', $data);
+        
     }
 
     public function monthly($emel, $month)
@@ -35,6 +40,16 @@ class Report extends Controller
         if (empty($data['result'])) {
             return redirect()->back();
         } else
-            return view('personal/monthlyreport', $data);
+            return view('personal/report', $data);
+    }
+
+    public function cumulative($emel)
+    {
+        $model = new Process_model();
+        $data['result2'] = $model->getCumulative(base64_decode($emel));
+        if (empty($data['result2'])) {
+            return redirect()->back();
+        } else
+            return view('personal/allreport', $data);
     }
 }
