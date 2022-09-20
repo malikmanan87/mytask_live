@@ -134,7 +134,7 @@
                             <hr>
                             <div class="row col-sm-12">
                                 <div class="col-sm-2">
-                                    <label>Assign To Technician- <em>*jika kosong, sistem automatik ambil email siapa yang klik butang "Attend" dibawah.</em></label>
+                                    <label>**Assign To Technician- <em>jika kosong, sistem automatik ambil email siapa yang klik butang "Attend" dibawah.</em></label>
                                 </div>
                                 <div class="col-sm-2">
                                     <select class="form-control" name="assign">
@@ -146,8 +146,11 @@
                                         <option value="nikzaimnar@unisza.edu.my">ZAIM</option>
                                         <option value="mekrogayahhussin@unisza.edu.my">MEK</option>
                                         <option value="wfairawhamid@unisza.edu.my">FAIRA</option>
+                                        <option value="malikmanan@unisza.edu.my">MALIK</option>
                                     </select>
                                 </div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-3"><em>info : ** is optional input.</em></div>
                             </div>
                             <hr>
                         <?php } else {
@@ -232,6 +235,25 @@ if ($session->updatesuccess) { ?>
         Toast.fire({
             icon: 'danger',
             title: 'info, status un-changed.'
+        })
+    </script>
+<?php } elseif ($session->emailfailed) { ?>
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'danger',
+            title: 'Sorry, Fail to send an email to technician. Please try again.'
         })
     </script>
 <?php } else {

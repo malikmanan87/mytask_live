@@ -147,6 +147,7 @@
               <table id="example1" class="table table-bordered table-striped table-sm display nowrap">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>Report ID</th>
                     <th>Device</th>
                     <th>Problem Description</th>
@@ -157,8 +158,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($result as $item) : ?>
+                  <?php
+                  $i = 1;
+                   foreach ($result as $item) : 
+                   ?>
                     <tr>
+                      <td><?= $i++; ?></td>
                       <th><?= $item['ticket_id'] ?></th>
                       <td>
                         <?php

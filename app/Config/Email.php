@@ -33,7 +33,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $protocol = 'mail';
+    public $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -47,7 +47,8 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost;
+    // public $SMTPHost;
+    public $SMTPHost = 'smtp-relay.gmail.com';
 
     /**
      * SMTP Username
@@ -68,7 +69,7 @@ class Email extends BaseConfig
      *
      * @var int
      */
-    public $SMTPPort = 25;
+    public $SMTPPort = 587;
 
     /**
      * SMTP Timeout (in seconds)

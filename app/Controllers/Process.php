@@ -77,6 +77,23 @@ class Process extends BaseController
         // check jika tiada assign pd sape2, auto ambik emel attendee yg klik
         if (!empty($this->request->getVar('assign'))) { //jika ada select tech
             $emailattendee = $this->request->getVar('assign');
+
+            // send emel notification
+            $email = \Config\Services::email();
+            $email->setFrom('admin@mytask.com', 'Admin');
+            $email->setTo($emailattendee);
+            $email->setCC('mekrogayahhussin@unisza.edu.my');
+            $email->setBCC('malikmanan@unisza.edu.my');
+            $email->setSubject('New ticket from MyTask System');
+            $email->setMessage('test');
+            $email->send();
+
+            if (! $email->send()) {
+                print_r($email->printDebugger(['headers']));
+                // return redirect()->back()->with('emailfailed', 'failed');
+                exit();
+            }
+
         } else {
             $emailattendee = $this->request->getVar('emailattendee'); //ambil nilai session email
         }

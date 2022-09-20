@@ -38,9 +38,9 @@
                                         <tr>
                                             <td><?= $item['attendee'] ?></td>
                                             <td style="text-align: center;">
-                                                <span class="badge badge-pill badge-light"><a href="<?= base_url('/monthly') . '/' . base64_encode($item['attendee']) . '/' . $item['cur_month'] ?>"><?= $item['cur_ticket'] ?> ticket/s</a></span>
+                                                <a href="<?= base_url('/monthly') . '/' . base64_encode($item['attendee']) . '/' . $item['cur_month'] ?>"><span class="badge badge-pill badge-light"><?= $item['cur_ticket'] ?> ticket/s</span></a>
                                             </td>
-                                            <td style="text-align: center;"><span class="badge badge-pill badge-light"><a href="<?= base_url("/techreport") ?>"><?= $item['cum_ticket'] ?> ticket/s</a></span></td>
+                                            <td style="text-align: center;"><a href="<?= base_url("/techreport") ?>"><span class="badge badge-pill badge-light"><?= $item['cum_ticket'] ?> ticket/s</span></a></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
