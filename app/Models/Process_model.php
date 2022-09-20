@@ -83,18 +83,19 @@ class Process_model extends Model
     {
         if ($email === false) {
 
-            $queryawi = "select DISTINCT newcomplain.attendee,table1.cur_month ,table1.cur_ticket, table2.cum_ticket from newcomplain
+            $queryawi = "select DISTINCT newcomplain.attendee,table1.cur_month, table1.cur_year, table1.cur_ticket, table2.cum_ticket from newcomplain
             left join (
-                select DISTINCT attendee, month(created_at) as cur_month,count(ticket_id) as cur_ticket
+                select DISTINCT attendee, month(created_at) as cur_month, year(created_at) as cur_year, count(ticket_id) as cur_ticket
                 from newcomplain
-                where month(created_at) = month(CURRENT_DATE)
-                GROUP BY attendee, month(created_at)
+                where month(created_at) = month(CURRENT_DATE) and year(created_at) = year(CURRENT_DATE)
+                GROUP BY attendee, month(created_at), year(created_at)
             ) as table1 on table1.attendee = newcomplain.attendee
             left join (
                 select DISTINCT attendee, COUNT(ticket_id) as cum_ticket
                 FROM newcomplain
                 group by attendee
             ) as table2 on table2.attendee = newcomplain.attendee
+            where newcomplain.attendee != ''
             order by newcomplain.attendee asc";
 
             $db = db_connect();

@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <select class="form-control" name="assign">
-                                        <option value=""></option>
+                                        <option value="">-- Please select --</option>
                                         <option value="syukerimohamad@unisza.edu.my">SYUKERI</option>
                                         <option value="msayutizakaria@unisza.edu.my">SAYUTI</option>
                                         <option value="aminfahmihashim@unisza.edu.my">AMIN</option>

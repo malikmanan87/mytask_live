@@ -50,9 +50,9 @@
                                                     echo "<span class='badge badge-pill badge-warning'>In-Progress</span>";
                                                 } elseif ($item['status'] == 11) { //completed by tech
                                                     echo "<span class='badge badge-pill badge-warning'>Pending verify</span>";
-                                                }elseif ($item['status'] == 2) { //completed
+                                                } elseif ($item['status'] == 2) { //completed
                                                     echo "<span class='badge badge-pill badge-success'>Completed</span>";
-                                                }elseif ($item['status'] == 3) { //canceled
+                                                } elseif ($item['status'] == 3) { //canceled
                                                     echo "<span class='badge badge-pill badge-dark'>Canceled</span>";
                                                 } else {
                                                     echo "error";
@@ -65,8 +65,13 @@
                             </table>
                         </div>
                         <div class="card-footer">
-                            <a class="btn btn-primary" href="<?= base_url('/') ?>" role="button">
-                                < Back</a>
+                            <?php
+                            $session = session();
+                            if ($session->email == 'malikmanan@unisza.edu.my' or $session->email == 'mekrogayahhussin@unisza.edu.my' or $session->email == 'zulfazryzulkafeli@unisza.edu.my') { ?>
+                                <a class="btn btn-primary" href="<?= base_url('/allreport') ?>" role="button">
+                                    < Back</a>
+                                    <?php } else {
+                                } ?>
                         </div>
                     </div>
                 </div>

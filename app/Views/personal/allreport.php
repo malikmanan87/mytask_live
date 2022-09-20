@@ -25,11 +25,11 @@
                             <h3 class="card-title">All technician report</h3>
                         </div>
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped table-sm">
+                            <table id="example3" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th>Attendee / technician</th>
-                                        <th style="text-align: center;"><?php echo date("F Y"); ?></th>
+                                        <th style="text-align: center;">Current Month (<?php echo date("F Y"); ?>)</th>
                                         <th style="text-align: center;">Cumulative</th>
                                     </tr>
                                 </thead>
@@ -38,19 +38,17 @@
                                         <tr>
                                             <td><?= $item['attendee'] ?></td>
                                             <td style="text-align: center;">
-                                                <button type="button" class="btn btn-primary">
-                                                    <span class="badge badge-light"><a href="<?= base_url('/monthly') . '/' . base64_encode($item['attendee']) . '/' . $item['cur_month'] ?>"><?= $item['cur_ticket'] ?> ticket/s</a></span>
-                                                </button>
+                                                <span class="badge badge-pill badge-light"><a href="<?= base_url('/monthly') . '/' . base64_encode($item['attendee']) . '/' . $item['cur_month'] ?>"><?= $item['cur_ticket'] ?> ticket/s</a></span>
                                             </td>
-                                            <td style="text-align: center;"><?= $item['cum_ticket'] ?></td>
+                                            <td style="text-align: center;"><span class="badge badge-pill badge-light"><a href="<?= base_url("/techreport") ?>"><?= $item['cum_ticket'] ?> ticket/s</a></span></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
                         <div class="card-footer">
-                            <a class="btn btn-primary" href="<?= base_url('/') ?>" role="button">
-                                < Back</a>
+                            <!-- <a class="btn btn-primary" href="<?= base_url('/') ?>" role="button">
+                                < Back</a> -->
                         </div>
                     </div>
                 </div>

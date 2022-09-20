@@ -198,7 +198,7 @@
                       <td>
                         <?php
                         if ($item['attendee'] == null and $item['status'] != 3) {
-                          echo "<i>Open</i>";
+                          echo "<i>-- Open --</i>";
                         } elseif ($item['attendee'] == null and $item['status'] == 3 or $item['attendee'] != null and $item['status'] == 3) {
                           echo "<i>Canceled by System</i>";
                         } else
