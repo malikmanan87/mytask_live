@@ -224,7 +224,7 @@
                 </li>
                 <?php
                 $session = session();
-                if ($session->email == 'malikmanan@unisza.edu.my' or $session->email == 'mekrogayahhussin@unisza.edu.my' or $session->email == 'zulfazryzulkafeli@unisza.edu.my') { ?>
+                if ($session->access == '3') { ?>
                   <li class="nav-item">
                     <a href="<?= base_url("/allreport") ?>" class="nav-link">
                       <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>

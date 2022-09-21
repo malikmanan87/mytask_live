@@ -130,7 +130,7 @@
                         <?php } else {
                         } ?>
                         <?php
-                        if ((($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhussin@unisza.edu.my")) and $result['status'] == 0) { ?>
+                        if ((($session->access == '3')) and $result['status'] == 0) { ?>
                             <hr>
                             <div class="row col-sm-12">
                                 <div class="col-sm-2">
@@ -182,7 +182,7 @@
                                     }
                                     ?>
                                     <?php
-                                    if (($session->email == "malikmanan@unisza.edu.my") or ($session->email == "mekrogayahhussin@unisza.edu.my")) {
+                                    if ($session->access == "3") {
                                         echo "<a href='" . base_url('/toupdate') . "/" . $result['id'] . "' class='btn btn-info'>Update By Admin</a>";
                                     }
                                     ?>
