@@ -13,9 +13,9 @@
           } elseif ($session->access == 2) {
             echo "<button type='button' class='btn bg-gradient-info btn-xs'><b>Role :</b> Technician</button>";
           } elseif ($session->access == 3) {
-            echo "<button type='button' class='btn bg-gradient-info btn-xs'><b>Role :</b> Administrator</button>";
-          }else{
-            echo "<button type='button' class='btn bg-gradient-info btn-xs'><b>Role :</b> Unknown</button>";
+            echo "<button type='button' class='btn bg-gradient-info btn-xs' data-toggle='modal' data-target='.bd-example-modal-sm' title='click to display SESSION variables'><b>Role :</b> Administrator</button>";
+          } else {
+            echo "<button type='button' class='btn bg-gradient-info btn-xs' ><b>Role :</b> Unknown</button>";
           }
 
           // use CodeIgniter\I18n\Time;
@@ -32,6 +32,15 @@
           // var_dump($_SESSION);
           // echo '</pre>';
           ?>
+
+          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+             <pre><?= var_dump($_SESSION) ?></pre>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -162,8 +171,8 @@
                 <tbody>
                   <?php
                   $i = 1;
-                   foreach ($result as $item) : 
-                   ?>
+                  foreach ($result as $item) :
+                  ?>
                     <tr>
                       <td><?= $i++; ?></td>
                       <th><?= $item['ticket_id'] ?></th>
@@ -208,7 +217,7 @@
                           echo "<i>-- Open --</i>";
                         } elseif ($item['attendee'] == null and $item['status'] == 3 or $item['attendee'] != null and $item['status'] == 3) {
                           echo "<i>Canceled by System</i>";
-                        } else{
+                        } else {
                           $nameonly = str_replace('@unisza.edu.my', '', $item['attendee']);
                           echo $nameonly;
                         }
