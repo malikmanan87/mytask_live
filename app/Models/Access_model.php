@@ -15,8 +15,8 @@ class Access_model extends Model
 
     protected $allowedFields = ['email', 'level'];
 
-    public function getEmail($email = false)
+    public function getEmail($username)
     {
-        return $this->findColumn('email',$email);
+        return $this->where('email', $username)->findAll();
     }
 }

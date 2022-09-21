@@ -28,18 +28,18 @@ class Login extends Controller
         try {
             $response = $client->request("POST", "https://disruptivetech.unisza.edu.my/api/common/v1/auth/login", ['json' => ['username' => $username, "password" => $password],]);
             $jsondata = json_decode($response->getBody());
-
             $model = new Access_model(); //connect model access utk dptkan lvl access
-            $data = $model->getEmail($username);
+            $data = $model->getEmail($username); 
 
-            if ($data[0] == $username) { //jika ada access dlm table access
+
+            if ($data) { //jika ada access dlm table access
                 $session = session();
                 $newdata = [
                     'email'  => $jsondata->data->info->email,
                     'staffno'     => $jsondata->data->info->idnumber,
                     'name'     => $jsondata->data->info->nama,
                     'logged_in' => true,
-                    'access' => 3
+                    'access' => $data[0]['level']
                 ];
                 // $encode = $url_encoded($newdata);
                 $session->set($newdata);

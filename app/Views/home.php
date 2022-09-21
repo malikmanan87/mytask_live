@@ -9,12 +9,14 @@
           <?php
           $session = session();
           if ($session->access == 1) {
-            echo "<span class='badge badge-pill badge-light'>Guest</span>";
+            echo "<button type='button' class='btn bg-gradient-info btn-xs'><b>Role :</b> Guest</button>";
           } elseif ($session->access == 2) {
-            echo "<span class='badge badge-pill badge-info'>Technician</span>";
+            echo "<button type='button' class='btn bg-gradient-info btn-xs'><b>Role :</b> Technician</button>";
           } elseif ($session->access == 3) {
-            echo "<span class='badge badge-pill badge-dark'>Admin</span>";
-          }else{}
+            echo "<button type='button' class='btn bg-gradient-info btn-xs'><b>Role :</b> Administrator</button>";
+          }else{
+            echo "<button type='button' class='btn bg-gradient-info btn-xs'><b>Role :</b> Unknown</button>";
+          }
 
           // use CodeIgniter\I18n\Time;
           // $myTime = new Time('now');
