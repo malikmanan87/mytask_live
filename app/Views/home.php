@@ -193,8 +193,8 @@
                       <td>
                         <?php
                         $datecreate = new DateTime($item['created_at']);
-                        echo $datecreate->format('d/m/Y | h:i:s a | D');
-                        if ($datecreate->format('d/m/Y') == date('d/m/Y')) {
+                        echo $datecreate->format('d/m/y | h:i:s a');
+                        if ($datecreate->format('d/m/y') == date('d/m/y')) {
                           echo "&nbsp;<span class='right badge badge-secondary'>Today!</span>";
                         } else {
                         }
@@ -206,8 +206,10 @@
                           echo "<i>-- Open --</i>";
                         } elseif ($item['attendee'] == null and $item['status'] == 3 or $item['attendee'] != null and $item['status'] == 3) {
                           echo "<i>Canceled by System</i>";
-                        } else
-                          echo $item['attendee']
+                        } else{
+                          $nameonly = str_replace('@unisza.edu.my', '', $item['attendee']);
+                          echo $nameonly;
+                        }
                         ?>
                       </td>
                       <td>

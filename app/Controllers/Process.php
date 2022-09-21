@@ -79,20 +79,20 @@ class Process extends BaseController
             $emailattendee = $this->request->getVar('assign');
 
             // send emel notification
-            $email = \Config\Services::email();
-            $email->setFrom('admin@mytask.com', 'Admin');
-            $email->setTo($emailattendee);
-            $email->setCC('mekrogayahhussin@unisza.edu.my');
-            $email->setBCC('malikmanan@unisza.edu.my');
-            $email->setSubject('New ticket from MyTask System');
-            $email->setMessage('test');
-            $email->send();
+            // $email = \Config\Services::email();
+            // $email->setFrom('admin@mytask.com', 'Admin');
+            // $email->setTo($emailattendee);
+            // $email->setCC('mekrogayahhussin@unisza.edu.my');
+            // $email->setBCC('malikmanan@unisza.edu.my');
+            // $email->setSubject('New ticket from MyTask System');
+            // $email->setMessage('test');
+            // $email->send();
 
-            if (! $email->send()) {
-                print_r($email->printDebugger(['headers']));
-                // return redirect()->back()->with('emailfailed', 'failed');
-                exit();
-            }
+            // if (! $email->send()) {
+            //     print_r($email->printDebugger(['headers']));
+            //     // return redirect()->back()->with('emailfailed', 'failed');
+            //     exit();
+            // }
 
         } else {
             $emailattendee = $this->request->getVar('emailattendee'); //ambil nilai session email

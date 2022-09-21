@@ -49,6 +49,7 @@ class Email extends BaseConfig
      */
     // public $SMTPHost;
     public $SMTPHost = 'smtp-relay.gmail.com';
+    // public $SMTPHost = 'smtp.mailtrap.io';
 
     /**
      * SMTP Username
@@ -56,6 +57,7 @@ class Email extends BaseConfig
      * @var string
      */
     public $SMTPUser = "hpunisza_sys01@unisza.edu.my";
+    // public $SMTPUser = "020dc64646164d";
 
     /**
      * SMTP Password
@@ -63,6 +65,7 @@ class Email extends BaseConfig
      * @var string
      */
     public $SMTPPass = "utzyv2Aqx6rz";
+    // public $SMTPPass = "53c124fab33552";
 
     /**
      * SMTP Port
@@ -111,7 +114,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $mailType = 'text';
+    public $mailType = 'html';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)
