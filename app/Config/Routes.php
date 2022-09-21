@@ -57,6 +57,9 @@ $routes->get('/allreport', 'Report::allreport', ['filter' => 'auth']);
 $routes->get('/monthly/(:any)/(:any)', 'Report::monthly/$1/$2', ['filter' => 'auth']);
 $routes->get('/readme', 'Report::readme', ['filter' => 'auth']);
 
+$routes->get('/managetech', 'Staf::index', ['filter' => 'auth']);
+$routes->post('/addnewstaf', 'Staf::addnewstaf', ['filter' => 'auth']);
+
 $routes->get('/newcaselist/(\d+)', 'Process::newcaselist/$1', ['filter' => 'auth']);
 $routes->get('/inprogresslist/(\d+)', 'Process::inprogresslist/$1', ['filter' => 'auth']);
 $routes->get('/completelist/(\d+)', 'Process::completelist/$1', ['filter' => 'auth']);

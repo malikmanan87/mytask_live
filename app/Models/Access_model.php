@@ -19,4 +19,18 @@ class Access_model extends Model
     {
         return $this->where('email', $username)->findAll();
     }
+
+    public function getStaf($id = false)
+    {
+        if ($id === false) {
+            return $this->findAll();
+        } else {
+            return $this->find($id);
+        }
+    }
+
+    public function checkStaf($newemail)
+    {
+        return $this->where('email', $newemail)->findAll();
+    }
 }

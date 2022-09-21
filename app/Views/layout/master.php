@@ -231,10 +231,15 @@
                       <p>All Report</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="<?= base_url("/managetech") ?>" class="nav-link">
+                      <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
+                      <p>Manage Staf</p>
+                    </a>
+                  </li>
                 <?php } else {
                 }
                 ?>
-
                 <li class="nav-item">
                   <a href="<?= base_url("/readme") ?>" class="nav-link">
                     <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
@@ -327,6 +332,16 @@
       $("#example3").DataTable({
         order: [
           [1, "desc"]
+        ],
+        "responsive": true,
+        "lengthChange": true,
+        "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+      $("#example4").DataTable({
+        order: [
+          [0, "asc"]
         ],
         "responsive": true,
         "lengthChange": true,

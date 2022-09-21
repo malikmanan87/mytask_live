@@ -36,7 +36,7 @@
           <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
-             <pre><?= var_dump($_SESSION) ?></pre>
+                <pre><?= var_dump($_SESSION) ?></pre>
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Report ID</th>
+                    <th>Task ID</th>
                     <th>Device</th>
                     <th>Problem Description</th>
                     <th>Location</th>
@@ -286,7 +286,7 @@ if ($session->create) { ?>
   <script>
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: 'center',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
@@ -297,8 +297,8 @@ if ($session->create) { ?>
     })
 
     Toast.fire({
-      icon: 'info',
-      title: 'Signed in successfully, welcome <?= $session->name ?>'
+      icon: 'success',
+      title: 'Welcome <?= $session->name ?>'
     })
   </script>
 <?php } elseif ($session->cancelsuccess) { ?>
