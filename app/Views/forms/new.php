@@ -69,8 +69,8 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label>Phone no. / ext</label>
-                                    <input type="number"  class="form-control" name="phone" placeholder="2706">
+                                    <label>Phone no. / ext </label><em</em>
+                                    <input type="number"  class="form-control" name="phone" placeholder="Insert '0' if no data">
                                 </div>
                             </div>
                         </div>
