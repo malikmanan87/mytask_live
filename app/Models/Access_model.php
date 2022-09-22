@@ -33,4 +33,9 @@ class Access_model extends Model
     {
         return $this->where('email', $newemail)->findAll();
     }
+
+    public function setAccess($id, $access)
+    {
+        return $this->update($id, ['level' => $access]);
+    }
 }

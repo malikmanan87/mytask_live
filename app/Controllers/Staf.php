@@ -37,4 +37,15 @@ class Staf extends BaseController
             return redirect()->back();
         }
     }
+
+    public function setaccess($id,$access)
+    {
+        $model = new Access_model();
+        $data['result'] = $model->setAccess($id, $access);
+        if ($data['result']) {
+            return redirect()->back()->with('successaccess', 'success');
+        } else {
+            return redirect()->back()->with('failedaccess', 'failed');
+        }
+    }
 }

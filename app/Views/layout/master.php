@@ -209,16 +209,18 @@
               </p>
             </a> -->
               <ul class="nav nav-treeview">
+              <li class="nav-header">MAIN</li>
                 <li class="nav-item">
                   <a href="<?= base_url("/new") ?>" class="nav-link">
-                    <i class="nav-icon fas fa-regular fa-file"></i>
+                    <i class="nav-icon fas fa-edit"></i>
                     <p>+ New Ticket</p>
                     <span class="right badge badge-warning">New</span>
                   </a>
                 </li>
+                <li class="nav-header">REPORT</li>
                 <li class="nav-item">
                   <a href="<?= base_url("/techreport") ?>" class="nav-link">
-                    <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
+                    <i class="nav-icon fas fa-chart-pie" aria-hidden="true"></i>
                     <p>My Report</p>
                   </a>
                 </li>
@@ -227,22 +229,24 @@
                 if ($session->access == '3') { ?>
                   <li class="nav-item">
                     <a href="<?= base_url("/allreport") ?>" class="nav-link">
-                      <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
+                      <i class="nav-icon fas fa-chart-pie" aria-hidden="true"></i>
                       <p>All Report</p>
                     </a>
                   </li>
+                  <li class="nav-header">STAF</li>
                   <li class="nav-item">
                     <a href="<?= base_url("/managetech") ?>" class="nav-link">
-                      <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
-                      <p>Manage Staf</p>
+                      <i class="nav-icon far fa-plus-square" aria-hidden="true"></i>
+                      <p>+ Staf</p>
                     </a>
                   </li>
                 <?php } else {
                 }
                 ?>
+                <li class="nav-header">INFO</li>
                 <li class="nav-item">
                   <a href="<?= base_url("/readme") ?>" class="nav-link">
-                    <i class="nav-icon fas fa-regular fa-file" aria-hidden="true"></i>
+                    <i class="nav-icon fas fa-book" aria-hidden="true"></i>
                     <p>Read Me plz!</p>
                   </a>
                 </li>
