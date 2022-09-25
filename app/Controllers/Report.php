@@ -30,7 +30,6 @@ class Report extends Controller
             return redirect()->back();
         } else
             return view('personal/allreport', $data);
-        
     }
 
     public function monthly($emel, $month)
@@ -46,10 +45,10 @@ class Report extends Controller
     public function cumulative($emel)
     {
         $model = new Process_model();
-        $data['result2'] = $model->getCumulative(base64_decode($emel));
-        if (empty($data['result2'])) {
+        $data['result'] = $model->getCumulative(base64_decode($emel));
+        if (empty($data['result'])) {
             return redirect()->back();
         } else
-            return view('personal/allreport', $data);
+            return view('personal/report', $data);
     }
 }

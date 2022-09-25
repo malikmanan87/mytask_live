@@ -55,6 +55,7 @@ $routes->post('/doupdate', 'Process::doupdate', ['filter' => 'auth']);
 $routes->get('/techreport', 'Report::index', ['filter' => 'auth']);
 $routes->get('/allreport', 'Report::allreport', ['filter' => 'auth']);
 $routes->get('/monthly/(:any)/(:any)', 'Report::monthly/$1/$2', ['filter' => 'auth']);
+$routes->get('/cumulative/(:any)', 'Report::cumulative/$1', ['filter' => 'auth']);
 $routes->get('/readme', 'Report::readme', ['filter' => 'auth']);
 
 $routes->get('/managetech', 'Staf::index', ['filter' => 'auth']);

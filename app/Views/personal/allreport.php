@@ -40,7 +40,7 @@
                                             <td style="text-align: center;">
                                                 <a href="<?= base_url('/monthly') . '/' . base64_encode($item['attendee']) . '/' . $item['cur_month'] ?>"><span class="badge badge-pill badge-light"><?= $item['cur_ticket'] ?> ticket/s</span></a>
                                             </td>
-                                            <td style="text-align: center;"><a href="<?= base_url("/techreport") ?>"><span class="badge badge-pill badge-light"><?= $item['cum_ticket'] ?> ticket/s</span></a></td>
+                                            <td style="text-align: center;"><a href="<?= base_url("/cumulative") . '/' . base64_encode($item['attendee']) ?>"><span class="badge badge-pill badge-light"><?= $item['cum_ticket'] ?> ticket/s</span></a></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -56,5 +56,7 @@
         </div>
     </section>
 </div>
+
+
 
 <?= $this->endSection() ?>

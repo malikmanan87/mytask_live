@@ -114,7 +114,7 @@ class Process_model extends Model
 
     public function getCumulative($a)
     {
-        return count($this->where('attendee', $a)->findAll());
+        return $this->where('attendee', $a)->findAll();
     }
 
     public function toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6, $u7)
