@@ -131,7 +131,7 @@
             <a href="<?= base_url('/canceledlist/3') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-2 col-12">
+        <div class="col-lg-2 col-6">
           <div class="small-box bg-info">
             <div class="inner">
               <h3><?= $allrecord; ?></h3>
@@ -140,11 +140,11 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="<?= base_url('/canceledlist/3') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">No info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-2 col-12">
-          <div class="small-box bg-info">
+        <div class="col-lg-2 col-6">
+          <div class="small-box bg-secondary">
             <div class="inner">
               <h3>Chart</h3>
               <p>Statistic</p>
@@ -163,19 +163,19 @@
   <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <!-- <div class="modal-header">
           <h4 class="modal-title">Info</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
-        </div>
+        </div> -->
         <div class="modal-body">
           <section class="content">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12">
                   <div class="card">
-                    <div class="card-header bg-dark">
+                    <div class="card-header bg-secondary">
                       <h3 class="card-title">By device type</h3>
                     </div>
                     <div class="card-body">
@@ -189,7 +189,7 @@
                             datasets: [{
                               label: "Total",
                               backgroundColor: ["red", "green", "blue", "yellow", "orange", "black", "grey"],
-                              data: [2478, 5267, 734, 784, 433, 200, 32]
+                              data: [<?= $chart1 . ',' .  $chart2 . ',' .  $chart3 . ',' .  $chart4 . ',' .  $chart5 . ',' .  $chart6 . ',' .  $chart7 ?>]
                             }]
                           },
                           options: {
@@ -211,9 +211,7 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div> -->
       </div>
-
     </div>
-
   </div>
 
   <section class="content hidden-mobile">

@@ -49,8 +49,5 @@ class Staf extends BaseController
         }
     }
 
-    public function chart(Type $var = null)
-    {
-        return view('chart.php');
-    }
+   
 }

@@ -107,7 +107,7 @@ class Process_model extends Model
         }
     }
 
-    public function getMonthly($a,$b)
+    public function getMonthly($a, $b)
     {
         return $this->where('attendee', $a)->where('month(created_at)', $b)->findAll();
     }
@@ -120,5 +120,34 @@ class Process_model extends Model
     public function toUpdate($id, $u1, $u2, $u3, $u4, $u5, $u6, $u7)
     {
         return $this->update($id, ['cat_device' => $u1, 'cat_problem' => $u2, 'location' => $u3, 'temp_user' => $u4, 'phone' => $u5, 'description' => $u6, 'progress' => $u7]);
+    }
+
+    public function getChart1($id)
+    {
+        return $this->where('cat_device', $id)->find();
+    }
+    public function getChart2($id)
+    {
+        return $this->where('cat_device', $id)->findAll();
+    }
+    public function getChart3($id)
+    {
+        return $this->where('cat_device', $id)->findAll();
+    }
+    public function getChart4($id)
+    {
+        return $this->where('cat_device', $id)->findAll();
+    }
+    public function getChart5($id)
+    {
+        return $this->where('cat_device', $id)->findAll();
+    }
+    public function getChart6($id)
+    {
+        return $this->where('cat_device', $id)->findAll();
+    }
+    public function getChart7($id)
+    {
+        return $this->where('cat_device', $id)->findAll();
     }
 }
