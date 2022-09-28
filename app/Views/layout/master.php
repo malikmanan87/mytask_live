@@ -209,7 +209,7 @@
               </p>
             </a> -->
               <ul class="nav nav-treeview">
-              <li class="nav-header">MAIN</li>
+                <li class="nav-header">MAIN</li>
                 <li class="nav-item">
                   <a href="<?= base_url("/new") ?>" class="nav-link">
                     <i class="nav-icon fas fa-edit"></i>
@@ -248,6 +248,12 @@
                   <a href="<?= base_url("/readme") ?>" class="nav-link">
                     <i class="nav-icon fas fa-book" aria-hidden="true"></i>
                     <p>Read Me plz!</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url("/chart") ?>" class="nav-link">
+                    <i class="nav-icon fas fa-pen" aria-hidden="true"></i>
+                    <p>chart test</p>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -295,8 +301,19 @@
   <script src="<?= base_url() ?>/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="<?= base_url() ?>/dist/js/adminlte.js"></script>
+
+  <!-- PAGE PLUGINS -->
+  <!-- jQuery Mapael -->
+  <script src="<?= base_url() ?>/dist/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+  <script src="<?= base_url() ?>/dist/plugins/raphael/raphael.min.js"></script>
+  <script src="<?= base_url() ?>/dist/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+  <script src="<?= base_url() ?>/dist/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+  <!-- ChartJS -->
+  <script src="<?= base_url() ?>/dist/plugins/chart.js/Chart.min.js"></script>
+
   <!-- AdminLTE for demo purposes -->
   <!-- <script src="<?= base_url() ?>/dist/js/demo.js"></script> -->
+
   <!-- DataTables  & Plugins -->
   <script src="<?= base_url() ?>/dist/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>/dist/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

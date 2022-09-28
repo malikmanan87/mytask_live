@@ -48,4 +48,9 @@ class Staf extends BaseController
             return redirect()->back()->with('failedaccess', 'failed');
         }
     }
+
+    public function chart(Type $var = null)
+    {
+        return view('chart.php');
+    }
 }

@@ -61,6 +61,7 @@ $routes->get('/readme', 'Report::readme', ['filter' => 'auth']);
 $routes->get('/managetech', 'Staf::index', ['filter' => 'auth']);
 $routes->post('/addnewstaf', 'Staf::addnewstaf', ['filter' => 'auth']);
 $routes->get('/setaccess/(\d+)/(\d+)', 'Staf::setaccess/$1/$2', ['filter' => 'auth']);
+$routes->get('/chart/', 'Staf::chart', ['filter' => 'auth']);
 
 $routes->get('/newcaselist/(\d+)', 'Process::newcaselist/$1', ['filter' => 'auth']);
 $routes->get('/inprogresslist/(\d+)', 'Process::inprogresslist/$1', ['filter' => 'auth']);

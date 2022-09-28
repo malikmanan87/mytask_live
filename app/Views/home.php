@@ -85,7 +85,7 @@
             <a href="<?= base_url('/newcaselist/0') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-2 col-6">
           <div class="small-box bg-warning">
             <div class="inner">
               <h3>
@@ -99,7 +99,7 @@
                   echo $stat11;
                 }
                 ?></h3>
-              <p>In-progress & Pending verify</p>
+              <p>In-progress</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -107,7 +107,7 @@
             <a href="<?= base_url('/inprogresslist/1') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-2 col-6">
           <div class="small-box bg-success">
             <div class="inner">
               <h3><?= $stat2; ?></h3>
@@ -143,8 +143,78 @@
             <a href="<?= base_url('/canceledlist/3') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <div class="col-lg-2 col-12">
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>Chart</h3>
+              <p>Statistic</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <button type="button" class="btn btn-info small-box-footer btn-block" data-toggle="modal" data-target="#modal-default">
+              Display Chart <i class="fas fa-arrow-circle-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
   </section>
+
+  <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Info</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header bg-dark">
+                      <h3 class="card-title">By device type</h3>
+                    </div>
+                    <div class="card-body">
+                      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+                      <canvas id="doughnut-chart" width="300" height="300"></canvas>
+                      <script>
+                        new Chart(document.getElementById("doughnut-chart"), {
+                          type: 'doughnut',
+                          data: {
+                            labels: ["PC", "Laptop", "Printer", "Scanner", "Photostat Machine", "Access Door", "Others"],
+                            datasets: [{
+                              label: "Total",
+                              backgroundColor: ["red", "green", "blue", "yellow", "orange", "black", "grey"],
+                              data: [2478, 5267, 734, 784, 433, 200, 32]
+                            }]
+                          },
+                          options: {
+                            title: {
+                              display: true,
+                              text: 'Device type statistic'
+                            }
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+
+    </div>
+
+  </div>
 
   <section class="content hidden-mobile">
     <div class="container-fluid">
