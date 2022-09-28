@@ -251,14 +251,8 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?= base_url("/chart") ?>" class="nav-link">
-                    <i class="nav-icon fas fa-pen" aria-hidden="true"></i>
-                    <p>chart test</p>
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a href="<?= base_url("/logout") ?>" class="nav-link">
-                    <i class="fas fa-sign-out" aria-hidden="true"></i>
+                    <i class="nav-icon fas fa-power-off" aria-hidden="true"></i>
                     <p>Logout</p>
                   </a>
                 </li>

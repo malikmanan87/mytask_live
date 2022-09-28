@@ -176,14 +176,14 @@
                 <div class="col-12">
                   <div class="card">
                     <div class="card-header bg-secondary">
-                      <h3 class="card-title">By device type</h3>
+                      <h3 class="card-title">By Device Category:</h3>
                     </div>
                     <div class="card-body">
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-                      <canvas id="doughnut-chart" width="300" height="300"></canvas>
+                      <canvas id="pie-chart" width="300" height="300"></canvas>
                       <script>
-                        new Chart(document.getElementById("doughnut-chart"), {
-                          type: 'doughnut',
+                        new Chart(document.getElementById("pie-chart"), {
+                          type: 'pie',
                           data: {
                             labels: ["PC", "Laptop", "Printer", "Scanner", "Photostat Machine", "Access Door", "Others"],
                             datasets: [{
@@ -195,7 +195,7 @@
                           options: {
                             title: {
                               display: true,
-                              text: 'Device type statistic'
+                              text: 'Labels'
                             }
                           }
                         });
