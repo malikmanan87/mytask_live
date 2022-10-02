@@ -32,7 +32,7 @@
                                 <?php foreach ($resultrank1 as $resultrank1) : ?>
                                     <tr>
                                         <td>
-                                            <footer class="blockquote-footer"><?= $resultrank1['attendee']; ?> (<?= $resultrank1['cum_ticket'] ?> Tickets)</footer>
+                                            <footer class="blockquote-footer"><?= $resultrank1['attendee']; ?><br>(<?= $resultrank1['cum_ticket'] ?> Tickets)</footer>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -52,7 +52,7 @@
                                 <?php foreach ($resultrank2 as $resultrank2) : ?>
                                     <tr>
                                         <td>
-                                            <footer class="blockquote-footer"><?= $resultrank2['attendee']; ?> (<?= $resultrank2['cum_ticket'] ?> Tickets)</footer>
+                                            <footer class="blockquote-footer"><?= $resultrank2['attendee']; ?><br>(<?= $resultrank2['cum_ticket'] ?> Tickets)</footer>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -72,7 +72,7 @@
                                 <?php foreach ($resultrank3 as $resultrank3) : ?>
                                     <tr>
                                         <td>
-                                            <footer class="blockquote-footer"><?= $resultrank3['attendee']; ?> (<?= $resultrank3['cum_ticket'] ?> Tickets)</footer>
+                                            <footer class="blockquote-footer"><?= $resultrank3['attendee']; ?><br>(<?= $resultrank3['cum_ticket'] ?> Tickets)</footer>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

@@ -233,6 +233,12 @@
                       <p>All Report</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="<?= base_url("/complaint") ?>" class="nav-link">
+                      <i class="nav-icon fas fa-chart-pie" aria-hidden="true"></i>
+                      <p>All Complaint</p>
+                    </a>
+                  </li>
                   <li class="nav-header">STAF</li>
                   <li class="nav-item">
                     <a href="<?= base_url("/managetech") ?>" class="nav-link">
@@ -243,6 +249,13 @@
                 <?php } else {
                 }
                 ?>
+                <li class="nav-header">CONTACT US</li>
+                <li class="nav-item">
+                  <a href="<?= base_url("/contact") ?>" class="nav-link">
+                    <i class="nav-icon fas fa-question-circle" aria-hidden="true"></i>
+                    <p>Report bug</p>
+                  </a>
+                </li>
                 <li class="nav-header">INFO</li>
                 <li class="nav-item">
                   <a href="<?= base_url("/readme") ?>" class="nav-link">
@@ -250,6 +263,7 @@
                     <p>Read Me plz!</p>
                   </a>
                 </li>
+                <hr>
                 <li class="nav-item">
                   <a href="<?= base_url("/logout") ?>" class="nav-link">
                     <i class="nav-icon fas fa-power-off" aria-hidden="true"></i>
@@ -274,6 +288,7 @@
       <strong>Copyright &copy; 2022 <a href="mailto:malikmanan@unisza.edu.my">admin@JTM</a>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
+        <a href="<?= base_url('/send') ?>"><b>Contact Us</b></a>&nbsp;&nbsp;
         <b>Version</b> 3.2.0
       </div>
     </footer>

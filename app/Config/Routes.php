@@ -67,6 +67,11 @@ $routes->get('/inprogresslist/(\d+)', 'Process::inprogresslist/$1', ['filter' =>
 $routes->get('/completelist/(\d+)', 'Process::completelist/$1', ['filter' => 'auth']);
 $routes->get('/canceledlist/(\d+)', 'Process::canceledlist/$1', ['filter' => 'auth']);
 
+$routes->get('/contact', 'Contact::index', ['filter' => 'auth']);
+$routes->post('/send', 'Contact::send', ['filter' => 'auth']);
+$routes->get('/complaint', 'Contact::complaint', ['filter' => 'auth']);
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
