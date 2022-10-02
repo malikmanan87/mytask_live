@@ -147,7 +147,7 @@
           <div class="small-box bg-secondary">
             <div class="inner">
               <h3>Chart</h3>
-              <p>Statistic</p>
+              <p>By Device Category</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
@@ -176,7 +176,7 @@
                 <div class="col-12">
                   <div class="card">
                     <div class="card-header bg-secondary">
-                      <h3 class="card-title">By Device Category:</h3>
+                      <h3 class="card-title">Info</h3>
                     </div>
                     <div class="card-body">
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
@@ -227,9 +227,9 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Task ID</th>
+                    <th>Ticket ID</th>
                     <th>Device</th>
-                    <th>Problem Description</th>
+                    <th>Problem/Description</th>
                     <th>Location</th>
                     <th>Created At</th>
                     <th>Assigned To</th>
@@ -273,6 +273,7 @@
                         <?php
                         $datecreate = new DateTime($item['created_at']);
                         echo $datecreate->format('d/m/y | h:i:s a');
+                        // echo $datecreate->format('d/m/y');
                         if ($datecreate->format('d/m/y') == date('d/m/y')) {
                           echo "&nbsp;<span class='right badge badge-secondary'>Today!</span>";
                         } else {

@@ -326,7 +326,7 @@
     $(function() {
       $("#example1").DataTable({
         order: [
-          [5, "desc"]
+          [0, "desc"]
         ],
         "responsive": true,
         "lengthChange": true,
@@ -345,9 +345,9 @@
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
       $("#example3").DataTable({
-        order: [
-          [1, "desc"]
-        ],
+        // order: [
+        //   [3, "desc"]
+        // ],
         "responsive": true,
         "lengthChange": true,
         "autoWidth": false,
@@ -356,7 +356,7 @@
 
       $("#example4").DataTable({
         order: [
-          [0, "asc"]
+          [2, "asc"]
         ],
         "responsive": true,
         "lengthChange": true,

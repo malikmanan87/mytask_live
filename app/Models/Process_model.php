@@ -96,7 +96,7 @@ class Process_model extends Model
                 group by attendee
             ) as table2 on table2.attendee = newcomplain.attendee
             where newcomplain.attendee != ''
-            order by newcomplain.attendee asc";
+            order by table2.cum_ticket desc";
 
             $db = db_connect();
             $query = $db->query($queryawi);
@@ -149,5 +149,85 @@ class Process_model extends Model
     public function getChart7($id)
     {
         return $this->where('cat_device', $id)->findAll();
+    }
+
+    public function getRank1(Type $var = null)
+    {
+        $rank1 = ("select * from (SELECT DISTINCT attendee,COUNT(ticket_id) as cum_ticket FROM newcomplain group by attendee) as table1 where table1.cum_ticket = (
+            select max(tbl2.cum_ticket) 
+                from (
+                    SELECT DISTINCT attendee,COUNT(ticket_id) as cum_ticket FROM newcomplain group by attendee) as tbl2
+                    );");
+
+        $db = db_connect();
+        $query = $db->query($rank1);
+        $query = $query->getResultArray();
+        return $query;
+    }
+
+    public function getRank2(Type $var = null)
+    {
+        $rank2 = ("
+        select * from 
+            (
+                SELECT DISTINCT attendee,COUNT(ticket_id) as cum_ticket FROM newcomplain group by attendee
+            ) as table1 where table1.cum_ticket
+        = 
+        (
+            select max(tbl3.cum_ticket) 
+            from 
+            (
+                select * from (SELECT DISTINCT attendee,COUNT(ticket_id) as cum_ticket FROM newcomplain group by attendee) 
+                as table1 
+                where 
+                table1.cum_ticket <  
+                    (
+                        select max(tbl2.cum_ticket) from 
+                        (
+                            SELECT DISTINCT attendee,COUNT(ticket_id) 
+                            as cum_ticket 
+                            FROM 
+                            newcomplain group by attendee
+                        ) 
+                        as tbl2
+                    )
+            ) 
+            as tbl3
+        );");
+
+        $db = db_connect();
+        $query = $db->query($rank2);
+        $query = $query->getResultArray();
+        return $query;
+    }
+
+    public function getRank3(Type $var = null)
+    {
+        $rank3 = ("
+            select * from 
+            (SELECT DISTINCT attendee,COUNT(ticket_id) as cum_ticket FROM newcomplain group by attendee) 
+            as table1 where table1.cum_ticket
+            = 
+            (select max(tbl4.cum_ticket) from 
+                (SELECT * FROM
+                    (SELECT DISTINCT attendee, COUNT(ticket_id) AS cum_ticket FROM newcomplain GROUP BY attendee) AS table1
+                WHERE
+                table1.cum_ticket <
+                    ( select max(tbl3.cum_ticket) 
+                    from 
+                        ( select * from (SELECT DISTINCT attendee,COUNT(ticket_id) as cum_ticket FROM newcomplain group by attendee) as table1 
+                        where 
+                        table1.cum_ticket <  
+                            ( select max(tbl2.cum_ticket) from ( SELECT DISTINCT attendee,COUNT(ticket_id) as cum_ticket FROM newcomplain group by attendee ) as tbl2 )
+                        ) 
+                    as tbl3
+                    )
+                ) as tbl4 
+            )
+        ");
+        $db = db_connect();
+        $query = $db->query($rank3);
+        $query = $query->getResultArray();
+        return $query;
     }
 }

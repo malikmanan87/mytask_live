@@ -42,15 +42,15 @@
                                             <td>
                                                 <?php
                                                 if ($item['level'] == '3') {
-                                                    echo "<span class='badge badge-pill badge-danger'>Administrator</span>";
+                                                    echo "<span class='badge badge badge-danger'>Administrator</span>";
                                                 } else {
-                                                    echo "<span class='badge badge-pill badge-warning'>Technician</span>";
+                                                    echo "<span class='badge badge badge-warning'>Technician</span>";
                                                 }
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url() ?>/setaccess/<?= $item['id'] ?>/3"><span class="badge badge-pill badge-danger">Administrator</span></a> |
-                                                <a href="<?= base_url() ?>/setaccess/<?= $item['id'] ?>/2"><span class="badge badge-pill badge-warning">Technician</span></a>
+                                                <a href="<?= base_url() ?>/setaccess/<?= $item['id'] ?>/3"><span class="badge badge badge-danger">Administrator</span></a> |
+                                                <a href="<?= base_url() ?>/setaccess/<?= $item['id'] ?>/2"><span class="badge badge badge-warning">Technician</span></a>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>

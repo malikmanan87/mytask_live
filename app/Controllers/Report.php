@@ -25,7 +25,10 @@ class Report extends Controller
     {
         $model = new Process_model();
         $data['result'] = $model->getReport();
-        // print_r($data['result']); die();
+        $data['resultrank1'] = $model->getRank1();
+        $data['resultrank2'] = $model->getRank2();
+        $data['resultrank3'] = $model->getRank3();
+
         if (empty($data['result'])) {
             return redirect()->back();
         } else
