@@ -233,12 +233,17 @@
                       <p>All Report</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="<?= base_url("/complaint") ?>" class="nav-link">
-                      <i class="nav-icon fas fa-chart-pie" aria-hidden="true"></i>
-                      <p>All Complaint</p>
-                    </a>
-                  </li>
+                  <!-- admin only -->
+                  <?php if ($session->access == '3' and $session->email == 'malikmanan@unisza.edu.my') { ?>
+                    <li class="nav-item">
+                      <a href="<?= base_url("/complaint") ?>" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie" aria-hidden="true"></i>
+                        <p>All Complaint</p>
+                      </a>
+                    </li>
+                  <?php } else {
+                  } ?>
+                  <!-- eof -->
                   <li class="nav-header">STAF</li>
                   <li class="nav-item">
                     <a href="<?= base_url("/managetech") ?>" class="nav-link">
@@ -253,7 +258,7 @@
                 <li class="nav-item">
                   <a href="<?= base_url("/contact") ?>" class="nav-link">
                     <i class="nav-icon fas fa-question-circle" aria-hidden="true"></i>
-                    <p>Report bug</p>
+                    <p>Make Complaint</p>
                   </a>
                 </li>
                 <li class="nav-header">INFO</li>

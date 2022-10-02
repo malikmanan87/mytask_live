@@ -70,6 +70,7 @@ $routes->get('/canceledlist/(\d+)', 'Process::canceledlist/$1', ['filter' => 'au
 $routes->get('/contact', 'Contact::index', ['filter' => 'auth']);
 $routes->post('/send', 'Contact::send', ['filter' => 'auth']);
 $routes->get('/complaint', 'Contact::complaint', ['filter' => 'auth']);
+$routes->get('/fix/(\d+)/(\d+)', 'Contact::fixInprogress/$1/$2', ['filter' => 'auth']);
 
 
 /*

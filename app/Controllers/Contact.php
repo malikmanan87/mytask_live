@@ -8,8 +8,7 @@ class Contact extends BaseController
 {
     public function index()
     {
-        $model = new Contact_model();
-        return view('contact_us/contact', $data);
+        return view('contact_us/contact');
     }
 
     public function send(Type $var = null)
@@ -36,6 +35,16 @@ class Contact extends BaseController
         if ($data['result']) {
             return view('contact_us/complaint_report', $data);
         } else
-            return redirect()->back();
+            return redirect()->to('/complaint');
+    }
+
+    public function fixInprogress($id, $status)
+    {
+        $model = new Contact_model();
+        $data['result'] = $model->fixInprogress($id, $status);
+        if ($data['result']) {
+            return redirect()->back()->with('updatesuccess', 'success');
+        } else
+            return redirect()->back()->with('updatefailed', 'failed');
     }
 }
