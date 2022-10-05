@@ -112,7 +112,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Action Taken / Progress - <em><i>by technician</i></em></label>
-                                    <textarea class="form-control" rows="3" placeholder="Please click [Update Progress] red button below after insert the actions." readonly><?= $result['progress'] ?></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="please contact admin if no action here." readonly><?= $result['progress'] ?></textarea>
                                 </div>
                             </div>
                         </div>

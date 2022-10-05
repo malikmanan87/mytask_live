@@ -47,4 +47,14 @@ class Contact extends BaseController
         } else
             return redirect()->back()->with('updatefailed', 'failed');
     }
+
+    public function deletecomp($id)
+    {
+        $model = new Contact_model();
+        $data['result'] = $model->deleteComplain($id);
+        if ($data['result']) {
+            return redirect()->back();
+        } else
+            return redirect()->back();
+    }
 }

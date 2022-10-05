@@ -35,6 +35,7 @@
                                         <th>msg</th>
                                         <th>status</th>
                                         <th>action</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,8 +66,9 @@
                                                         <a href="<?= base_url('/fix') ?>/<?= $item['id'] ?>/2" class="btn btn-sm btn-warning">Fixed</a>
                                                     <?php } else {
                                                         echo "completed";
-                                                    } ?>
+                                                    } ?>                                                   
                                                 </td>
+                                                <td> <a href="<?= base_url('/deletecomp').'/'.$item['id']?> " class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash">&nbsp;</i>Delete</a></td>
                                             </tr>
                                         <?php endforeach ?>
                                     <?php } else {
