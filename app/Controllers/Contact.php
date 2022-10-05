@@ -35,7 +35,7 @@ class Contact extends BaseController
         if ($data['result']) {
             return view('contact_us/complaint_report', $data);
         } else
-            return redirect()->to('/complaint');
+            return view('contact_us/complaint_report', $data);
     }
 
     public function fixInprogress($id, $status)
@@ -53,8 +53,8 @@ class Contact extends BaseController
         $model = new Contact_model();
         $data['result'] = $model->deleteComplain($id);
         if ($data['result']) {
-            return redirect()->back();
+            return view('contact_us/complaint_report', $data);
         } else
-            return redirect()->back();
+            return view('contact_us/complaint_report', $data);
     }
 }
