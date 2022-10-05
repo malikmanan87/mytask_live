@@ -21,8 +21,9 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b> &nbsp;MyTask</b>System</a>
-        </div>
+        <img src="<?= base_url() ?>/media/pc.png" alt="mytask Logo" class="brand-image img-circle elevation-3" style="opacity: .8" width="100px"><br>
+            <b>MyTask</b>&nbsp;System
+        </div><br>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-header">
