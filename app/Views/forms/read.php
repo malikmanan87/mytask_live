@@ -112,7 +112,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Action Taken / Progress - <em><i>by technician</i></em></label>
-                                    <textarea class="form-control" rows="3" readonly><?= $result['progress'] ?></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Please click [Update Progress] red button below after insert the actions." readonly><?= $result['progress'] ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Action Taken <small>-by technician</small></label>
-                                        <textarea class="form-control" rows="3" name="progress" placeholder="Please click [Update Progress] red button below after insert the info."><?= $result['progress'] ?></textarea>
+                                        <textarea class="form-control" rows="3" name="progress" placeholder="Please click [Update Progress] red button below after insert the actions."><?= $result['progress'] ?></textarea>
                                     </div>
                                 </div>
                             </div>

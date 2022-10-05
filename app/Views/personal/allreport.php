@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Top Achievement</h1>
+                    <h1 class="m-0">Top Achievement (cumulative)</h1>
                 </div>
                 <div class="col-sm">
                     <ol class="breadcrumb float-sm-right">
@@ -115,7 +115,7 @@
                                                     <span class="btn btn-sm btn-outline-dark">
                                                         <?php if ($item['cur_ticket'] == '') {
                                                             echo 0;
-                                                        } else echo $item['cum_ticket'] ?> - Ticket/s</span></a>
+                                                        } else echo $item['cur_ticket'] ?> - Ticket/s</span></a>
                                             </td>
                                             <td style="text-align: center;"><a href="<?= base_url("/cumulative") . '/' . base64_encode($item['attendee']) ?>">
                                                     <span class="btn btn-sm btn-outline-dark">
