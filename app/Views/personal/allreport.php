@@ -21,7 +21,28 @@
     <!-- Main content -->
     <div class="container text-center">
         <div class="row justify-content-md-center">
+
             <div class="col-md-3 col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="<?= base_url('/') ?>/media/r2.png" alt="User Avatar" class="img-size-100 mr-3 img-circle" width="130px">
+                    </div>
+                    <div class="card-footer">
+                        <table align="center">
+                            <tbody>
+                                <?php foreach ($resultrank2 as $resultrank2) : ?>
+                                    <tr>
+                                        <td>
+                                            <footer class="blockquote-footer"><?= $resultrank2['attendee']; ?><br>(<?= $resultrank2['cum_ticket'] ?> Tickets)</footer>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm">
                 <div class="card">
                     <div class="card-body">
                         <img src="<?= base_url('/') ?>/media/r1.png" alt="User Avatar" class="img-size-100 mr-3 img-circle">
@@ -44,27 +65,7 @@
             <div class="col-md-3 col-sm">
                 <div class="card">
                     <div class="card-body">
-                        <img src="<?= base_url('/') ?>/media/r2.png" alt="User Avatar" class="img-size-100 mr-3 img-circle">
-                    </div>
-                    <div class="card-footer">
-                        <table align="center">
-                            <tbody>
-                                <?php foreach ($resultrank2 as $resultrank2) : ?>
-                                    <tr>
-                                        <td>
-                                            <footer class="blockquote-footer"><?= $resultrank2['attendee']; ?><br>(<?= $resultrank2['cum_ticket'] ?> Tickets)</footer>
-                                        </td>
-                                    </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="<?= base_url('/') ?>/media/r3.png" alt="User Avatar" class="img-size-100 mr-3 img-circle">
+                        <img src="<?= base_url('/') ?>/media/r3.png" alt="User Avatar" class="img-size-100 mr-3 img-circle" width="130px">
                     </div>
                     <div class="card-footer">
                         <table align="center">

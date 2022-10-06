@@ -22,7 +22,7 @@
     <div class="login-box">
         <div class="login-logo">
         <img src="<?= base_url() ?>/media/pc.png" alt="mytask Logo" class="brand-image img-circle elevation-3" style="opacity: .8" width="100px"><br>
-            <b>MyTask</b>&nbsp;System
+            <b>MyTask</b>&nbsp;System<sup>Beta</sup>
         </div><br>
         <!-- /.login-logo -->
         <div class="card">
