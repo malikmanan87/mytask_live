@@ -112,7 +112,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Action Taken / Progress - <em><i>by technician</i></em></label>
-                                    <textarea class="form-control" rows="3" placeholder="please contact admin if no action here." readonly><?= $result['progress'] ?></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Please contact admin if action/progress not appear." readonly><?= $result['progress'] ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -152,6 +152,9 @@
                                         <option value="hasnawihashim@unisza.edu.my">HASNAWI</option>
                                         <option value="supiantawang@unisza.edu.my">SUPIAN</option>
                                         <option value="syedafaizjaafar@unisza.edu.my">SYED</option>
+                                        <option value="" disabled>------ F41 ------</option>
+                                        <option value="zulfazryzulkafeli@unisza.edu.my">ZULFAZRY</option>
+                                        <option value="adib@unisza.edu.my">ADIB RAHIMI</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-2"></div>
