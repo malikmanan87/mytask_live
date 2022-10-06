@@ -138,15 +138,20 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <select class="form-control" name="assign">
-                                        <option value="">-- Please select --</option>
+                                        <option value="">------ FT19 ------</option>
                                         <option value="syukerimohamad@unisza.edu.my">SYUKERI</option>
                                         <option value="msayutizakaria@unisza.edu.my">SAYUTI</option>
                                         <option value="aminfahmihashim@unisza.edu.my">AMIN</option>
                                         <option value="asrulnizamrizuan@unisza.edu.my">ASRUL</option>
-                                        <option value="nikzaimnar@unisza.edu.my">ZAIM</option>
-                                        <option value="mekrogayahhussin@unisza.edu.my">MEK</option>
+                                        <option value="nikzaimnar@unisza.edu.my">ZAIM</option>                                        
                                         <option value="wfairawhamid@unisza.edu.my">FAIRA</option>
+                                        <option value="" disabled>------ FA29 ------</option>
+                                        <option value="mekrogayahhussin@unisza.edu.my">MEK</option>
                                         <option value="malikmanan@unisza.edu.my">MALIK</option>
+                                        <option value="ashabulyamin@unisza.edu.my">YAMIN</option>
+                                        <option value="hasnawihashim@unisza.edu.my">HASNAWI</option>
+                                        <option value="supiantawang@unisza.edu.my">SUPIAN</option>
+                                        <option value="syedafaizjaafar@unisza.edu.my">SYED</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-2"></div>
