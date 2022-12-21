@@ -15,7 +15,7 @@ class Process_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['ticket_id', 'cat_device', 'cat_problem', 'location', 'phone', 'description', 'created_by', 'created_at', 'updated_at', 'deleted_at', 'status', 'attendee', 'progress', 'temp_user'];
+    protected $allowedFields = ['ticket_id', 'cat_device', 'cat_problem', 'location', 'phone', 'description', 'created_by', 'ic_by','created_at', 'updated_at', 'deleted_at', 'status', 'attendee', 'progress', 'temp_user'];
 
     // protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

@@ -27,6 +27,7 @@
 
                     <form action="<?= base_url('/create') ?>" method="post">
                     <input type="hidden" name="createdby" value="<?php $session = session(); echo $session->email; ?>">
+                    <input type="hidden" name="icby" value="<?php $session = session(); echo $session->nokp; ?>">
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">

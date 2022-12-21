@@ -23,7 +23,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Task Details By :
                         <span class="badge badge-dark">
-                            <a href="mailto:<?= $result['created_by'] ?>"> <?= $result['created_by'] ?></a>
+                            <a href="mailto:<?= $result['created_by'] ?>"> <?= $result['created_by'] ?> (ic no: <?= $result['ic_by'] ?></a> )
                         </span>
                     </h3>
                 </div>
@@ -143,7 +143,7 @@
                                         <option value="msayutizakaria@unisza.edu.my">SAYUTI</option>
                                         <option value="aminfahmihashim@unisza.edu.my">AMIN</option>
                                         <option value="asrulnizamrizuan@unisza.edu.my">ASRUL</option>
-                                        <option value="nikzaimnar@unisza.edu.my">ZAIM</option>                                        
+                                        <option value="nikzaimnar@unisza.edu.my">ZAIM</option>
                                         <option value="wfairawhamid@unisza.edu.my">FAIRA</option>
                                         <option value="" disabled>------ FA29 ------</option>
                                         <option value="mekrogayahhussin@unisza.edu.my">MEK</option>
