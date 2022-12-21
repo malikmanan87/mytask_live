@@ -28,6 +28,7 @@ class Login extends Controller
         try {
             $response = $client->request("POST", "https://disruptivetech.unisza.edu.my/api/common/v1/auth/login", ['json' => ['username' => $username, "password" => $password],]);
             $jsondata = json_decode($response->getBody());
+            // print_r($jsondata);die;
             $model = new Access_model(); //connect model access utk dptkan lvl access
             $data = $model->getEmail($username); 
 
@@ -38,6 +39,7 @@ class Login extends Controller
                     'email'  => $jsondata->data->info->email,
                     'staffno'     => $jsondata->data->info->idnumber,
                     'name'     => $jsondata->data->info->nama,
+                    'nokp'     => $jsondata->data->info->userid,
                     'logged_in' => true,
                     'access' => $data[0]['level']
                 ];
@@ -50,6 +52,7 @@ class Login extends Controller
                     'email'  => $jsondata->data->info->email,
                     'staffno'     => $jsondata->data->info->idnumber,
                     'name'     => $jsondata->data->info->nama,
+                    'nokp'     => $jsondata->data->info->userid,
                     'logged_in' => true,
                     'access' => 1
                 ];
