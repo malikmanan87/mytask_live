@@ -23,7 +23,8 @@
                 <div class="card-header">
                     <h3 class="card-title">Task Details By :
                         <span class="badge badge-dark">
-                            <a href="mailto:<?= $result['created_by'] ?>"> <?= $result['created_by'] ?> (ic no: <?= $result['ic_by'] ?></a> )
+                            <a href="mailto:<?= $result['created_by'] ?>"> <?= $result['created_by'] ?></a>    <?php if($_SESSION['access'] == 3 OR $_SESSION['access'] == 2) echo '(IC NO : '.$result['ic_by'] ?> )
+                            <!-- HANYA ADMIN DAN TECH BLH TGK IC NUMBER -->
                         </span>
                     </h3>
                 </div>
