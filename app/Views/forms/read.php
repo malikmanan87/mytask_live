@@ -23,7 +23,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Task Details By :
                         <span class="badge badge-dark">
-                            <a href="mailto:<?= $result['created_by'] ?>"> <?= $result['created_by'] ?></a>    <?php if($_SESSION['access'] == 3 OR $_SESSION['access'] == 2) echo '(IC NO : '.$result['ic_by'] ?> )
+                            <a href="mailto:<?= $result['created_by'] ?>"> <?= $result['created_by'] ?></a> <?php if ($_SESSION['access'] == 3 or $_SESSION['access'] == 2) echo '(IC NO : ' . $result['ic_by'] ?> )
                             <!-- HANYA ADMIN DAN TECH BLH TGK IC NUMBER -->
                         </span>
                     </h3>
@@ -117,6 +117,15 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            <strong>Hi! <?= $result['created_by'] ?>,</strong> please click <button type="button" class="btn btn-sm btn-success">Completed</button> button below if the issues has been resolved, Thank You.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
                         <?php
                         // papar jika status 1
                         if ($result['status'] == 1 and $result['attendee'] == $session->email) { ?>
