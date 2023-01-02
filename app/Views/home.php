@@ -228,7 +228,8 @@
                   <tr>
                     <th>#</th>
                     <th>Ticket ID</th>
-                    <th>Device</th>
+                    <!-- <th>Device</th> -->
+                    <th>Created By</th>
                     <th>Problem/Description</th>
                     <th>Location</th>
                     <th>Created At</th>
@@ -244,27 +245,19 @@
                     <tr>
                       <td><?= $i++; ?></td>
                       <th><?= $item['ticket_id'] ?></th>
-                      <td>
+                      <td><?php $cbname = str_replace('@unisza.edu.my', '', $item['created_by']);echo $cbname; ?></td>
+                      <!-- <td> -->
                         <?php
-                        if ($item['cat_device'] == 'd1') {
-                          echo "PC";
-                        } elseif ($item['cat_device'] == 'd2') {
-                          echo "Laptop";
-                        } elseif ($item['cat_device'] == 'd3') {
-                          echo "Printer";
-                        } elseif ($item['cat_device'] == 'd4') {
-                          echo "Scanner";
-                        } elseif ($item['cat_device'] == 'd5') {
-                          echo "Photostat Machine";
-                        } elseif ($item['cat_device'] == 'd6') {
-                          echo "Access Door";
-                        } elseif ($item['cat_device'] == 'd7') {
-                          echo "Others";
-                        } else {
-                          echo "error";
-                        }
+                        // if ($item['cat_device'] == 'd1') { echo "PC"; } 
+                        // elseif ($item['cat_device'] == 'd2') { echo "Laptop"; } 
+                        // elseif ($item['cat_device'] == 'd3') { echo "Printer"; } 
+                        // elseif ($item['cat_device'] == 'd4') { echo "Scanner"; } 
+                        // elseif ($item['cat_device'] == 'd5') { echo "Photostat Machine"; } 
+                        // elseif ($item['cat_device'] == 'd6') { echo "Access Door"; } 
+                        // elseif ($item['cat_device'] == 'd7') { echo "Others"; } 
+                        // else { echo "error"; }
                         ?>
-                      </td>
+                      <!-- </td> -->
                       <td>
                         <a href="<?= base_url('/read/' . $item['id']) ?>"><?= substr($item['description'], 0, 30) ?>..</a>
                       </td>

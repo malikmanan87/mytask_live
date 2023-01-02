@@ -120,7 +120,7 @@
 
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
-                            <strong>Hi! <?= $result['created_by'] ?>,</strong> please click <button type="button" class="btn btn-sm btn-success">Completed</button> button below if the issues has been resolved, Thank You.
+                            <strong>Hi! <?= $cbname = str_replace('@unisza.edu.my', '', $result['created_by']); ?>,</strong> please click <button type="button" class="btn btn-sm btn-success">Completed</button> button below if the issues has been resolved, Thank You.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

@@ -43,8 +43,10 @@
                                                 <?php
                                                 if ($item['level'] == '3') {
                                                     echo "<span class='badge badge badge-danger'>Administrator</span>";
-                                                } else {
+                                                } elseif ($item['level'] == '2') {
                                                     echo "<span class='badge badge badge-warning'>Technician</span>";
+                                                } else {
+                                                    echo "<span class='badge badge badge-secondary'>Guest</span>";
                                                 }
                                                 ?>
                                             </td>
