@@ -133,7 +133,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Action Taken <small>-by technician</small></label>
-                                        <textarea class="form-control" rows="3" name="progress" placeholder="Please click [Update Progress] red button below after insert the actions."><?= $result['progress'] ?></textarea>
+                                        <textarea class="form-control" rows="3" name="progress" placeholder="Please click [Update Progress] red button below after insert the actions." required><?= $result['progress'] ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -183,12 +183,14 @@
                                     if ($result['status'] == 0) { //kes baru
                                         echo "<button type='submit' class='btn btn-light'>Attend</button>";
                                     } elseif ($result['status'] == 1 and $result['attendee'] == $session->email) { //dlm proses tech
+
                                         echo "<button type='submit' class='btn btn-danger'>Update Progress</button>";
                                     } else {
                                     }
 
-                                    if ($result['status'] == 1 and $result['attendee'] == $session->email) {
+                                    if ($result['status'] == 1 and $result['attendee'] == $session->email and $result['progress'] !== '') {
                                         echo "<a class='btn btn-warning' href='" . base_url('/completedbytech') . "/" . $result['id'] . "' role='button'>Completed by Tech</a>";
+                                    } else {
                                     }
 
                                     if ($result['status'] == 11 and $result['created_by'] == $session->email) { //dlm proses tech
@@ -215,6 +217,7 @@
 </div>
 
 <!-- sweetalert -->
+
 <?php
 $session = session();
 if ($session->updatesuccess) { ?>
