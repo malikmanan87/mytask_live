@@ -214,6 +214,11 @@
                   <a href="<?= base_url("/new") ?>" class="nav-link">
                     <i class="nav-icon fas fa-edit"></i>
                     <p>+ New Ticket</p>
+                    <!-- <span class="right badge badge-warning">New</span> -->
+                  </a>
+                  <a href="<?= base_url("/newisyifaa") ?>" class="nav-link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>Aduan I-Syifaa</p>
                     <span class="right badge badge-warning">New</span>
                   </a>
                 </li>

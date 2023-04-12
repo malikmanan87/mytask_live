@@ -12,6 +12,11 @@ class Process extends BaseController
         return view('forms/new');
     }
 
+    public function newisyifaa()
+    {
+        return view('forms/newisyifaa');
+    }
+
     public function create()
     {
         $session = session();
