@@ -43,8 +43,15 @@ $routes->get('/logout', 'Login::logout');
 
 $routes->get('/home', 'Home::index', ['filter' => 'auth']); //filter home page from unauthorize access
 $routes->get('/new', 'Process::new', ['filter' => 'auth']);
+
 // add new isyifaa aduan form
 $routes->get('/newisyifaa', 'Process::newisyifaa', ['filter' => 'auth']);
+$routes->post('/createisyifaa', 'Process::createisyifaa', ['filter' => 'auth']);
+
+// ambikanak
+// add new isyifaa aduan form
+$routes->get('/ambikanak', 'Anak::index', ['filter' => 'auth']);
+$routes->get('/saveambikanak', 'Anak::saveambikanak', ['filter' => 'auth']);
 
 $routes->post('/create', 'Process::create', ['filter' => 'auth']);
 $routes->get('/read/(\d+)', 'Process::read/$1', ['filter' => 'auth']);

@@ -216,11 +216,21 @@
                     <p>+ New Ticket</p>
                     <!-- <span class="right badge badge-warning">New</span> -->
                   </a>
-                  <a href="<?= base_url("/newisyifaa") ?>" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p>Aduan I-Syifaa</p>
-                    <span class="right badge badge-warning">New</span>
-                  </a>
+                  <?php
+                  $session = session();
+                  if ($session->access == '3' and $session->email == 'malikmanan@unisza.edu.my') { ?>
+                    <a href="<?= base_url("/newisyifaa") ?>" class="nav-link">
+                      <i class="nav-icon fas fa-edit"></i>
+                      <p>Aduan I-Syifaa</p>
+                      <span class="right badge badge-warning">New</span>
+                    </a>
+                    <a href="<?= base_url("/ambikanak") ?>" class="nav-link">
+                      <i class="nav-icon fas fa-car"></i>
+                      <p>Ambik anak</p>
+                      <span class="right badge badge-warning">New</span>
+                    </a>
+                  <?php } else {
+                  } ?>
                 </li>
                 <li class="nav-header">REPORT</li>
                 <li class="nav-item">
@@ -386,6 +396,16 @@
         "responsive": true,
         "lengthChange": true,
         "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+      $("#ambikanakdt").DataTable({
+        order: [
+          [1, "desc"]
+        ],
+        "responsive": true,
+        "lengthChange": true,
+        "autoWidth": true,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
