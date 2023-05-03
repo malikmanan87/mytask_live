@@ -377,7 +377,7 @@
         "lengthChange": true,
         "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
 
       $("#example3").DataTable({
         // order: [
@@ -387,7 +387,7 @@
         "lengthChange": true,
         "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
 
       $("#example4").DataTable({
         order: [
@@ -397,17 +397,17 @@
         "lengthChange": true,
         "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      }).buttons().container().appendTo('#example4_wrapper .col-md-6:eq(0)');
 
       $("#ambikanakdt").DataTable({
         order: [
-          [1, "desc"]
+          [0, "desc"]
         ],
         "responsive": true,
         "lengthChange": true,
-        "autoWidth": true,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        "autoWidth": false,
+        "buttons": ["pdf", "print"]
+      }).buttons().container().appendTo('#ambikanakdt_wrapper .col-md-6:eq(0)');
 
     });
   </script>
