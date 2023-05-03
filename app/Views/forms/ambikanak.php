@@ -45,6 +45,7 @@
                                 <th scope="col">Tarikh</th>
                                 <th scope="col">Masa Keluar</th>
                                 <th scope="col">Masa Masuk</th>
+                                <th scope="col">Hutang</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,6 +55,15 @@
                                     <td><?= $item['tarikh'] ?></td>
                                     <td><?= $item['masakeluar'] ?></td>
                                     <td><?= $item['masamasuk'] ?></td>
+                                    <td>
+                                        <?php
+                                        $masakeluar = strtotime($item['masakeluar']);
+                                        $masamasuk = strtotime($item['masamasuk']);
+                                        $difference = $masamasuk - $masakeluar;
+                                        $difference_minute =  $difference / 60;
+                                        echo intval($difference_minute) . ' minit';
+                                        ?>
+                                    </td>
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
@@ -120,7 +130,7 @@ if ($session->masuksuccess) { ?>
         })
 
         Toast.fire({
-            icon: 'danger',
+            icon: 'error',
             title: 'Maaf, rekod MASUK telah wujud.'
         })
     </script>
