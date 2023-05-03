@@ -34,11 +34,11 @@
                         </a>
                     <?php } ?>
                 </div>
-               
+
             </div>
             <div class="card text-center">
-            <div class="card-body">
-            <table id="ambikanakdt" class="table table-bordered table-striped table-sm">
+                <div class="card-body">
+                    <table id="ambikanakdt" class="table table-bordered table-striped table-sm">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -58,9 +58,72 @@
                             <?php endforeach ?>
                         </tbody>
                     </table>
-            </div>
+                </div>
             </div>
         </div>
     </section>
 </div>
+
+<!-- sweetalert -->
+<?php
+$session = session();
+if ($session->masuksuccess) { ?>
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Rekod MASUK disimpan.'
+        })
+    </script>
+<?php } elseif ($session->keluarsuccess) { ?>
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Rekod KELUAR disimpan.'
+        })
+    </script>
+<?php } elseif ($session->updatefailed) { ?>
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'danger',
+            title: 'Maaf, rekod MASUK telah wujud.'
+        })
+    </script>
+<?php } else {
+} ?>
 <?= $this->endSection() ?>

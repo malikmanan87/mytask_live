@@ -18,7 +18,7 @@ class Anak extends BaseController
         //     $data['result'] = '';
         //     return view('forms/ambikanak', $data);
         // } else
-            return view('forms/ambikanak', $data);
+        return view('forms/ambikanak', $data);
     }
 
     public function saveambikanak()
@@ -32,14 +32,15 @@ class Anak extends BaseController
 
         // simpan masa masuk ke pejabat
         if ($cari) {
-            // jika masa masuk belum wujud
             if ($cari[0]['masamasuk'] == '00:00:00') {
                 $data = [
                     'masamasuk' => $timenow,
                 ];
                 $id = $cari[0]['id'];
                 $model->update($id, $data);
+                return redirect()->back()->with('masuksuccess', 'success');
             } else {
+                return redirect()->back()->with('updatefailed', 'failed');
             }
         } else {
             // simpan masa keluar ambk anak
@@ -47,7 +48,7 @@ class Anak extends BaseController
                 'tarikh' => $datetoday,
                 'masakeluar' => $timenow
             ]);
+            return redirect()->back()->with('keluarsuccess', 'success');
         }
-        return redirect()->back();
     }
 }
