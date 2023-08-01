@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Process_model;
-use App\Models\Process2_model;
 use CodeIgniter\I18n\Time;
 
 class Process extends BaseController
@@ -11,11 +10,6 @@ class Process extends BaseController
     public function new()
     {
         return view('forms/new');
-    }
-
-    public function newisyifaa()
-    {
-        return view('forms/newisyifaa');
     }
 
     public function create()
@@ -65,41 +59,6 @@ class Process extends BaseController
         return redirect()->to('/home')->with('create', 'success');
     }
 
-    public function createisyifaa()
-    {
-        // $session = session();
-
-        $rules = [
-            'locationisyifaa' => 'required',
-            'userisyifaa' => 'required',
-            'descriptionisyifaa' => 'required',
-        ];
-
-        
-
-        if (!$this->validate($rules)) {
-            return view('forms/new', [
-                'validation' => $this->validator,
-            ]);
-        } else {
-            $now = new Time('now');
-            $model = new Process2_model();
-            // eoc
-
-            // print_r($this->request->getVar('userisyifaa')); die();
-
-            $model->save([
-                'locationisyifaa' => $this->request->getVar('locationisyifaa'),
-                'userisyifaa' => $this->request->getVar('userisyifaa'),
-                'descriptionisyifaa' => $this->request->getVar('descriptionisyifaa'),
-                'status' => 0,
-                'created_by' => $this->request->getVar('createdby'),
-                'created_at' => $now,
-            ]);
-        }
-        return redirect()->to('/home')->with('create', 'success');
-    }
-
     public function read($id)
     {
         $model = new Process_model();
@@ -110,6 +69,7 @@ class Process extends BaseController
         } else
             return view('forms/read', $data);
     }
+
 
     public function attend($id)
     {

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Process_model;
+use App\Models\Process2_model;
 
 class Home extends BaseController
 {
@@ -10,12 +12,16 @@ class Home extends BaseController
         $session = session();
         $model = new Process_model();
         $data['result'] = $model->getRecords();
-        $data['stat0'] = $model->getStat(0);        
+        $data['stat0'] = $model->getStat(0);
         $data['stat1'] = $model->getStat(1);
         $data['stat11'] = $model->getStat(11);
         $data['stat2'] = $model->getStat(2);
         $data['stat3'] = $model->getStat(3);
         $data['allrecord'] = $model->countAllRecord();
+
+        // utk record isyifaa
+        $model2 = new Process2_model();
+        $data['result2'] = $model2->getRecords2();
 
         // get count for chart
 
@@ -26,7 +32,7 @@ class Home extends BaseController
         $data['chart5'] = count($model->getChart5('d5'));
         $data['chart6'] = count($model->getChart6('d6'));
         $data['chart7'] = count($model->getChart7('d7'));
-       
-        return view('home',$data);
+
+        return view('home', $data);
     }
 }

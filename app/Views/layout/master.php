@@ -219,7 +219,7 @@
                   <?php
                   $session = session();
                   if ($session->access == '3' and $session->email == 'malikmanan@unisza.edu.my') { ?>
-                    <a href="<?= base_url("/newisyifaa") ?>" class="nav-link">
+                    <a href="<?= base_url("/new2") ?>" class="nav-link">
                       <i class="nav-icon fas fa-edit"></i>
                       <p>Aduan I-Syifaa</p>
                       <span class="right badge badge-warning">New</span>

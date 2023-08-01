@@ -15,17 +15,17 @@ class Process2_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['locationisyifaa', 'userisyifaa', 'descriptionisyifaa', 'status', 'created_by', 'created_at', 'updated_at', 'deleted_at'];
-    
-    
-    // public function getRecords($id = false)
-    // {
-    //     if ($id === false) {
-    //         return $this->findAll();
-    //     } else {
-    //         return $this->find($id);
-    //     }
-    // }
+    protected $allowedFields = ['ticket_id', 'location', 'phone', 'description', 'status', 'progress', 'created_by', 'ic_by', 'created_at', 'updated_at', 'deleted_at', 'temp_user'];
+
+
+    public function getRecords2($id = false)
+    {
+        if ($id === false) {
+            return $this->findAll();
+        } else {
+            return $this->find($id);
+        }
+    }
 
     // public function getStat($id)
     // {

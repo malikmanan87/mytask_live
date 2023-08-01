@@ -220,7 +220,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
-              <h3 class="card-title">Task List</h3>
+              <h3 class="card-title">List Technical</h3>
             </div>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped table-sm display nowrap">
@@ -245,18 +245,19 @@
                     <tr>
                       <td><?= $i++; ?></td>
                       <th><?= $item['ticket_id'] ?></th>
-                      <td><?php $cbname = str_replace('@unisza.edu.my', '', $item['created_by']);echo $cbname; ?></td>
+                      <td><?php $cbname = str_replace('@unisza.edu.my', '', $item['created_by']);
+                          echo $cbname; ?></td>
                       <!-- <td> -->
-                        <?php
-                        // if ($item['cat_device'] == 'd1') { echo "PC"; } 
-                        // elseif ($item['cat_device'] == 'd2') { echo "Laptop"; } 
-                        // elseif ($item['cat_device'] == 'd3') { echo "Printer"; } 
-                        // elseif ($item['cat_device'] == 'd4') { echo "Scanner"; } 
-                        // elseif ($item['cat_device'] == 'd5') { echo "Photostat Machine"; } 
-                        // elseif ($item['cat_device'] == 'd6') { echo "Access Door"; } 
-                        // elseif ($item['cat_device'] == 'd7') { echo "Others"; } 
-                        // else { echo "error"; }
-                        ?>
+                      <?php
+                      // if ($item['cat_device'] == 'd1') { echo "PC"; } 
+                      // elseif ($item['cat_device'] == 'd2') { echo "Laptop"; } 
+                      // elseif ($item['cat_device'] == 'd3') { echo "Printer"; } 
+                      // elseif ($item['cat_device'] == 'd4') { echo "Scanner"; } 
+                      // elseif ($item['cat_device'] == 'd5') { echo "Photostat Machine"; } 
+                      // elseif ($item['cat_device'] == 'd6') { echo "Access Door"; } 
+                      // elseif ($item['cat_device'] == 'd7') { echo "Others"; } 
+                      // else { echo "error"; }
+                      ?>
                       <!-- </td> -->
                       <td>
                         <a href="<?= base_url('/read/' . $item['id']) ?>"><?= substr($item['description'], 0, 30) ?>..</a>
@@ -301,6 +302,92 @@
                           // echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
                           echo "<center><span class='right badge badge-success'>Completed</span></center>";
                         } elseif ($item['status'] == 3) { //canceled
+                          // echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
+                          echo "<center><span class='right badge badge-dark'>canceled</span></center>";
+                        } else {
+                        } //error
+                        ?>
+                        <!-- </div> -->
+                      </td>
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content hidden-mobile">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-primary">
+              <h3 class="card-title">List Isyifaa (under construction!) <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              </h3>
+            </div>
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-striped table-sm display nowrap">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Ticket ID</th>
+                    <th>Created By</th>
+                    <th>Problem/Description</th>
+                    <th>Location</th>
+                    <th>Created At</th>
+                    <th>Assigned To</th>
+                    <th>Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $i = 1;
+                  foreach ($result2 as $item2) :
+                  ?>
+                    <tr>
+                      <td><?= $i++; ?></td>
+                      <th><?= $item2['ticket_id'] ?></th>
+                      <td><?php $cbname2 = str_replace('@unisza.edu.my', '', $item2['created_by']);
+                          echo $cbname2; ?></td>
+                      <td>
+                        <a href="<?= base_url('/read2/' . $item2['id']) ?>"><?= substr($item2['description'], 0, 30) ?>..</a>
+                      </td>
+                      <td><?= $item2['location'] ?></td>
+                      <td>
+                        <?php
+                        $datecreate2 = new DateTime($item2['created_at']);
+                        echo $datecreate2->format('d/m/y | h:i:s a');
+                        // echo $datecreate->format('d/m/y');
+                        if ($datecreate2->format('d/m/y') == date('d/m/y')) {
+                          echo "&nbsp;<span class='right badge badge-secondary'>Today!</span>";
+                        } else {
+                        }
+                        ?>
+                      </td>
+                      <td>
+
+
+                      </td>
+                      <td>
+                        <!-- <div class="progress progress-xs"> -->
+                        <?php
+                        if ($item2['status'] == 0) { //new case
+                          // echo "<div class='progress-bar bg-primary' style='width: 25%' ></div>";
+                          echo "<center><span class='right badge badge-primary'>New</span></center>";
+                        } elseif ($item2['status'] == 1) { //attend by  tech
+                          // echo "<div class='progress-bar bg-warning' style='width: 50%' ></div>";
+                          echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
+                        } elseif ($item2['status'] == 11) { //pending verify
+                          // echo "<div class='progress-bar bg-warning' style='width: 75%' ></div>";
+                          echo "<center><span class='right badge badge-warning'>In-Progress</span></center>";
+                        } elseif ($item2['status'] == 2) { //completed by user
+                          // echo "<div class='progress-bar bg-success' style='width: 100%' ></div>";
+                          echo "<center><span class='right badge badge-success'>Completed</span></center>";
+                        } elseif ($item2['status'] == 3) { //canceled
                           // echo "<div class='progress-bar bg-dark' style='width: 100%' ></div>";
                           echo "<center><span class='right badge badge-dark'>canceled</span></center>";
                         } else {
