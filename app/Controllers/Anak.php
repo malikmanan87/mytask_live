@@ -9,15 +9,8 @@ class Anak extends BaseController
 {
     public function index()
     {
-        $datetoday = Time::today('Asia/Kuala_Lumpur', 'en_US');
-        // return view('forms/ambikanak');
         $model = new Ambikanak_model();
         $data['result'] = $model->findAll();
-
-        // if (!$data['result']) {
-        //     $data['result'] = '';
-        //     return view('forms/ambikanak', $data);
-        // } else
         return view('forms/ambikanak', $data);
     }
 

@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 use CodeIgniter\I18n\Time;
 
-class Processisyifaa_model extends Model
+class Process2_model extends Model
 {
     protected $table      = 'newisyifaa';
     protected $primaryKey = 'id';

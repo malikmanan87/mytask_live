@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Process_model;
-use App\Models\Processisyifaa_model;
+use App\Models\Process2_model;
 use CodeIgniter\I18n\Time;
 
 class Process extends BaseController
@@ -65,9 +65,9 @@ class Process extends BaseController
         return redirect()->to('/home')->with('create', 'success');
     }
 
-    public function createisyifaa(Type $var = null)
+    public function createisyifaa()
     {
-        $session = session();
+        // $session = session();
 
         $rules = [
             'locationisyifaa' => 'required',
@@ -75,14 +75,18 @@ class Process extends BaseController
             'descriptionisyifaa' => 'required',
         ];
 
+        
+
         if (!$this->validate($rules)) {
             return view('forms/new', [
                 'validation' => $this->validator,
             ]);
         } else {
             $now = new Time('now');
-            $model = new Processisyifaa_model();
+            $model = new Process2_model();
             // eoc
+
+            // print_r($this->request->getVar('userisyifaa')); die();
 
             $model->save([
                 'locationisyifaa' => $this->request->getVar('locationisyifaa'),
