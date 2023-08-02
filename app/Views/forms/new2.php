@@ -25,7 +25,7 @@
 
                     <?php $validation = \Config\Services::validation(); ?>
 
-                    <form action="<?= base_url('/create2') ?>" method="post">
+                    <form action="<?= base_url('/create2') ?>" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="createdby" value="<?php $session = session();
                                                                         echo $session->email; ?>">
                         <input type="hidden" name="icby" value="<?php $session = session();
@@ -56,10 +56,14 @@
                                 <div class="form-group">
                                     <label>Problem Description</label>
                                     <textarea class="form-control" rows="3" placeholder="Enter ..." name="description2"></textarea>
-                                    <?= $validation->listErrors() ?>
                                 </div>
                             </div>
                         </div>
+                        <div class="custom-file col-sm-6">
+                            <input type="file" id="userfile" name="userfile">
+                        </div>
+                        <?= $validation->listErrors() ?>
+                        <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="btn-group" role="group" aria-label="Basic example">

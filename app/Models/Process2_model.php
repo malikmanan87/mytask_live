@@ -15,7 +15,7 @@ class Process2_model extends Model
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['ticket_id', 'location', 'phone', 'description', 'status', 'progress', 'created_by', 'ic_by', 'created_at', 'updated_at', 'deleted_at', 'temp_user'];
+    protected $allowedFields = ['ticket_id', 'location', 'phone', 'description', 'status', 'progress', 'created_by', 'ic_by', 'filename','created_at', 'updated_at', 'deleted_at', 'temp_user'];
 
 
     public function getRecords2($id = false)

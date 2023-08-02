@@ -69,6 +69,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>File/Image name: <em><i><?= $result['filename'] ?></i></em></label><br>
+                                    <img src="<?= base_url('/uploads') ?>/<?= $result['filename'] ?>" title="<?= $result['filename'] ?>" style="max-width:800px"><br>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>

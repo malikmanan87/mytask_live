@@ -5,7 +5,7 @@ namespace App\Controllers;
 // use App\Models\Process_model;
 use App\Models\Process2_model;
 use CodeIgniter\I18n\Time;
-
+use CodeIgniter\Files\File;
 
 class Process2 extends BaseController
 {
@@ -17,21 +17,38 @@ class Process2 extends BaseController
     public function create2()
     {
 
-        $rules = [
+        $validationRule = [
             'location2' => 'required',
             'user2' => 'required',
             'phone2' => 'required',
             'description2' => 'required',
+            'userfile' => [
+                'label' => 'Image File',
+                'rules' => [
+                    'uploaded[userfile]',
+                    'is_image[userfile]',
+                    'mime_in[userfile,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[userfile,5000]',
+                ],
+            ],
         ];
 
-        if (!$this->validate($rules)) {
+        if (!$this->validate($validationRule)) {
             return view('forms/new2', [
                 'validation' => $this->validator,
             ]);
         } else {
             $now = new Time('now');
             $model = new Process2_model();
-            // eoc
+
+            // image
+            $img = $this->request->getFile('userfile');
+
+            if (!$img->hasMoved()) {
+                $fileName = $img->getRandomName();
+                $img->move(ROOTPATH . 'public/uploads/', $fileName);
+            } else {
+            }
 
             // generate random 6 char for ticket id
             $letters = 'abcdefghijklmnopqrstuvwxyz';
@@ -48,6 +65,7 @@ class Process2 extends BaseController
                 'status' => 0,
                 'created_by' => $this->request->getVar('createdby'),
                 'ic_by' => $this->request->getVar('icby'),
+                'filename' => $fileName,
                 'created_at' => $now,
                 'temp_user' => $this->request->getVar('user2'),
             ]);
