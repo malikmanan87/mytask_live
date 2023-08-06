@@ -10,18 +10,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url() ?>/dist/plugins/fontawesome-free/css/all.min.css">
+    <!-- Font Awesome642 -->
+    <link rel="stylesheet" href="<?= base_url() ?>/fontawesome642/css/fontawesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() ?>/fontawesome642/css/brands.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() ?>/fontawesome642/css/solid.css" rel="stylesheet">
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="<?= base_url() ?>/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>/dist/css/adminlte.min.css">
     <!-- sweet alert2 -->
-   <script src="<?=base_url()?>/dist/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url() ?>/dist/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-        <img src="<?= base_url() ?>/media/pc.png" alt="mytask Logo" class="brand-image img-circle elevation-3" style="opacity: .8" width="100px"><br>
+            <img src="<?= base_url() ?>/media/pc.png" alt="mytask Logo" class="brand-image img-circle elevation-3" style="opacity: .8" width="100px"><br>
             <b>MyTask</b>&nbsp;System<sup>Beta</sup>
         </div><br>
         <!-- /.login-logo -->
@@ -37,7 +41,7 @@
                         <input type="text" class="form-control" placeholder="without @unisza.edu.my" name="email">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fa fa-envelope"></span>
                             </div>
                         </div>
                     </div>
@@ -45,7 +49,8 @@
                         <input type="password" class="form-control" placeholder="Password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <!-- <span class="fa fa-lock"></span> -->
+                                <i class="fa-solid fa-lock"></i>
                             </div>
                         </div>
                     </div>
@@ -97,29 +102,29 @@
     <script src="<?= base_url() ?>/dist/js/adminlte.min.js"></script>
 
     <!-- sweetalert -->
-<?php
-$session = session();
-if ($session->failed) { ?>
-  <script>
-    const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseenter', Swal.stopTimer)
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
-  }
-})
+    <?php
+    $session = session();
+    if ($session->failed) { ?>
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
 
-Toast.fire({
-  icon: 'error',
-  title: 'Please enter valid username and password.'
-})
-  </script>
-<?php } else {
-} ?>
+            Toast.fire({
+                icon: 'error',
+                title: 'Please enter valid username and password.'
+            })
+        </script>
+    <?php } else {
+    } ?>
 
 </body>
 

@@ -69,6 +69,7 @@ class Login extends Controller
     {
         $session = session();
         $session->destroy();
-        return redirect()->to('/');
+        // return redirect()->to('/');
+        return redirect()->to('http://mytask.hosza.lan/');
     }
 }
