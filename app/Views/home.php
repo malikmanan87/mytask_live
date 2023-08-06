@@ -56,12 +56,20 @@
   <section class="content hidden-pc">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg">
+        <div class="col">
           <a href="<?= base_url('/new') ?>">
-            <div class="small-box bg-white">
+            <div class="small-box bg-white rounded-circle">
               <div class="inner">
-                <h4>+ New Ticket</h4>
-                <!-- <small><i>*create new case</i></small> -->
+                <h4>+ New (Technical)</h4>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="<?= base_url('/new2') ?>">
+            <div class="small-box bg-white rounded-circle">
+              <div class="inner">
+                <h4>+ New (Isyifaa)</h4>
               </div>
             </div>
           </a>
@@ -74,62 +82,66 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-2 col-6">
-          <div class="small-box bg-primary">
-            <div class="inner">
-              <h3><?= $stat0; ?></h3>
-              <p>New Ticket</p>
+          <a href="<?= base_url('/newcaselist/0') ?>">
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3><?= $stat0; ?></h3>
+                <p>New Ticket</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
             </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="<?= base_url('/newcaselist/0') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <div class="col-lg-2 col-6">
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>
-                <?php
-                if ((!empty($stat1)) and (!empty($stat11))) {
-                  $statboth = $stat1 + $stat11;
-                  echo $statboth;
-                } elseif (!empty($stat1)) {
-                  echo $stat1;
-                } else {
-                  echo $stat11;
-                }
-                ?></h3>
-              <p>In-progress</p>
+          <a href="<?= base_url('/inprogresslist/1') ?>">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>
+                  <?php
+                  if ((!empty($stat1)) and (!empty($stat11))) {
+                    $statboth = $stat1 + $stat11;
+                    echo $statboth;
+                  } elseif (!empty($stat1)) {
+                    echo $stat1;
+                  } else {
+                    echo $stat11;
+                  }
+                  ?></h3>
+                <p>In-progress</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
             </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="<?= base_url('/inprogresslist/1') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <div class="col-lg-2 col-6">
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3><?= $stat2; ?></h3>
-              <p>Completed</p>
+          <a href="<?= base_url('/completelist/2') ?>">
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?= $stat2; ?></h3>
+                <p>Completed</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
             </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="<?= base_url('/completelist/2') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <div class="col-lg-2 col-6">
-          <div class="small-box bg-dark">
-            <div class="inner">
-              <h3><?= $stat3; ?></h3>
-              <p>Canceled</p>
+          <a href="<?= base_url('/canceledlist/3') ?>">
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <h3><?= $stat3; ?></h3>
+                <p>Canceled</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
             </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="<?= base_url('/canceledlist/3') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <div class="col-lg-2 col-6">
           <div class="small-box bg-info">
@@ -140,22 +152,20 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">No info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-2 col-6">
-          <div class="small-box bg-secondary">
-            <div class="inner">
-              <h3>Chart</h3>
-              <p>By Device Category</p>
+          <a href="<?= base_url('/canceledlist/3') ?>" data-toggle="modal" data-target="#modal-default">
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3>Chart</h3>
+                <p>By Device Category</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
             </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <button type="button" class="btn btn-info small-box-footer btn-block" data-toggle="modal" data-target="#modal-default">
-              Display Chart <i class="fas fa-arrow-circle-right"></i>
-            </button>
-          </div>
+          </a>
         </div>
       </div>
   </section>
@@ -222,7 +232,7 @@
             <div class="card-header bg-dark">
               <h3 class="card-title">List Technical</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
               <table id="example1" class="table table-bordered table-striped table-sm display nowrap">
                 <thead>
                   <tr>
@@ -329,7 +339,7 @@
               <h3 class="card-title">List Isyifaa (under construction!) <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
               </h3>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
               <table id="example2" class="table table-bordered table-striped table-sm display nowrap">
                 <thead>
                   <tr>

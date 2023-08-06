@@ -19,9 +19,11 @@ class Login extends Controller
 
     public function auth()
     {
-        $username = $this->request->getVar('email');
+        $request = \Config\Services::request();
+
+        $username = $request->getVar('email');
         $username = $username . '@unisza.edu.my';
-        $password = $this->request->getVar('password');
+        $password = $request->getVar('password');
         // initiate curl request
         $client = \Config\Services::curlrequest();
 

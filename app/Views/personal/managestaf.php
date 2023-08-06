@@ -63,7 +63,7 @@
                             <form action="<?= base_url('/addnewstaf') ?>" method="post">
                                 <div class="row">
                                     <div class="col-sm-12 col-lg-3">
-                                        <input type="text" class="form-control" placeholder="Staf Email" id="newemail" name="newemail" required>
+                                        <input type="email" class="form-control" placeholder="Staf Email" id="newemail" name="newemail" required>
                                     </div>
                                     <div class="col-sm-12 col-lg-2">
                                         <select class="form-control" id="newaccess" name="newaccess">
