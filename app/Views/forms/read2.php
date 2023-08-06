@@ -73,7 +73,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>File/Image name: <em><i><?= $result['filename'] ?></i></em></label><br>
-                                    <img src="<?= base_url('/uploads') ?>/<?= $result['filename'] ?>" title="<?= $result['filename'] ?>" style="max-width:800px"><br>
+                                    <img src="<?= base_url('/uploads') ?>/<?= $result['filename'] ?>" title="<?= $result['filename'] ?>" class="img-fluid" alt="Responsive image"><br>
                                 </div>
                             </div>
                         </div>
